@@ -1,13 +1,13 @@
 ========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM132)
+Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM136)
 Toolchain: leanprover/lean4:v4.35.0
 Build Command: cd formal/yang_mills_blueprint && lake build
-Build Result: Build completed successfully (v1.1.0, YM101-YM132, exit 0)
+Build Result: Build completed successfully (v1.2.0, YM101-YM136, exit 0)
 Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
 Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 ========================================================================
 
-## VerifyNoTraps.lean Live Output (YM101-YM132)
+## VerifyNoTraps.lean Live Output (YM101-YM136)
 
 'PolydiskMajorant.tsum_geometric_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.sin_sq_le_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -205,5 +205,48 @@ inferInstance : Nonempty Certificates.ThickVortexSpreadingCert
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_thick_vortex_w16_lt_tenth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.GaugeInvariantCosetCert
+'CosetSignMagnitudeCreutz.creutzRatio_factorization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CosetSignMagnitudeCreutz.creutzRatio_pos_of_sign_dominance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.gauge_invariant_coset_creutz_gap_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_gauge_invariant_coset_creutz_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.BianchiCubeDefectCert
+'NonAbelianBianchiDefect.transportDiffNormSq_eq' depends on axioms: [propext, Quot.sound]
+'NonAbelianBianchiDefect.unit_transportDiffNormSq_ge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.nonabelian_bianchi_transport_defect_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_bianchi_transport_defect_gt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.abelian_collinear_bianchi_defect_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.SliceTransferGapCert
+'EffectiveMassTransferGap.spectralCorr_le_pow_mul_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EffectiveMassTransferGap.spectralCorr_log_convex' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EffectiveMassTransferGap.effectiveMassRatio_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.slice_transfer_exponential_decay_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_slice_glueball_t4_decay' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.GeneralGroupBianchiCert
+'AdjointBianchiNorm.frobSq_adjAction_sub_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AdjointBianchiNorm.frobSq_adjAction_sub_zero_of_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.general_adjoint_bianchi_defect_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_so3_adjoint_bianchi_defect_gt_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_cartan_commuting_bianchi_zero' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

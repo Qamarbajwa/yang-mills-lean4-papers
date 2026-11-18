@@ -39,6 +39,10 @@ import YangMillsBlueprint.MathlibStaging.EquicontinuousTightnessBridge
 import YangMillsBlueprint.MathlibStaging.CenterlessWeylAlcoveGap
 import YangMillsBlueprint.MathlibStaging.ChessboardHolderBound
 import YangMillsBlueprint.MathlibStaging.VortexSpreadingBound
+import YangMillsBlueprint.MathlibStaging.CosetSignMagnitudeCreutz
+import YangMillsBlueprint.MathlibStaging.NonAbelianBianchiDefect
+import YangMillsBlueprint.MathlibStaging.EffectiveMassTransferGap
+import YangMillsBlueprint.MathlibStaging.AdjointBianchiNorm
 import YangMillsBlueprint.Certificates.YM101_CauchyPolydiskCert
 import YangMillsBlueprint.Certificates.YM102_WeylCollarCert
 import YangMillsBlueprint.Certificates.YM103_SU2TwistRigidityCert
@@ -71,6 +75,10 @@ import YangMillsBlueprint.Certificates.YM129_ContinuumTightnessCert
 import YangMillsBlueprint.Certificates.YM130_CenterlessGroupGapCert
 import YangMillsBlueprint.Certificates.YM131_FILSChessboardCert
 import YangMillsBlueprint.Certificates.YM132_ThickVortexSpreadingCert
+import YangMillsBlueprint.Certificates.YM133_GaugeInvariantCosetCert
+import YangMillsBlueprint.Certificates.YM134_BianchiCubeDefectCert
+import YangMillsBlueprint.Certificates.YM135_SliceTransferGapCert
+import YangMillsBlueprint.Certificates.YM136_GeneralGroupBianchiCert
 
 /-!
 # Hardened Metaprogramming AST & Axiom Auditor (`VerifyNoTraps`)
@@ -328,6 +336,36 @@ private def auditedTheorems : List Name :=
   , ``VortexSpreadingBound.spreadTrigCost_lt_of_cutoff
   , ``YangMillsBlueprint.Certificates.thick_vortex_spread_cost_lt_conditional
   , ``YangMillsBlueprint.Certificates.canonical_thick_vortex_w16_lt_tenth
+  , ``CosetSignMagnitudeCreutz.centerSign_mul_abs
+  , ``CosetSignMagnitudeCreutz.coset_energy_decomposition
+  , ``CosetSignMagnitudeCreutz.coset_defects_nonneg
+  , ``CosetSignMagnitudeCreutz.creutzRatio_factorization
+  , ``CosetSignMagnitudeCreutz.creutzRatio_pos_of_sign_dominance
+  , ``YangMillsBlueprint.Certificates.gauge_invariant_coset_creutz_gap_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_gauge_invariant_coset_creutz_pos
+  , ``NonAbelianBianchiDefect.transportDiffNormSq_eq
+  , ``NonAbelianBianchiDefect.unit_transportDiffNormSq_eq
+  , ``NonAbelianBianchiDefect.unit_transportDiffNormSq_ge
+  , ``NonAbelianBianchiDefect.unit_transport_zero_of_cross_zero
+  , ``YangMillsBlueprint.Certificates.nonabelian_bianchi_transport_defect_pos
+  , ``YangMillsBlueprint.Certificates.canonical_bianchi_transport_defect_gt_one
+  , ``YangMillsBlueprint.Certificates.abelian_collinear_bianchi_defect_zero
+  , ``EffectiveMassTransferGap.spectralCorr_nonneg
+  , ``EffectiveMassTransferGap.spectralCorr_succ_le
+  , ``EffectiveMassTransferGap.spectralCorr_le_pow_mul_zero
+  , ``EffectiveMassTransferGap.spectralCorr_log_convex
+  , ``EffectiveMassTransferGap.effectiveMassRatio_mono
+  , ``YangMillsBlueprint.Certificates.slice_transfer_exponential_decay_conditional
+  , ``YangMillsBlueprint.Certificates.slice_transfer_log_convex
+  , ``YangMillsBlueprint.Certificates.canonical_slice_glueball_t4_decay
+  , ``AdjointBianchiNorm.frobSq_nonneg
+  , ``AdjointBianchiNorm.frobSq_adjAction
+  , ``AdjointBianchiNorm.adjAction_sub_eq
+  , ``AdjointBianchiNorm.frobSq_adjAction_sub_eq
+  , ``AdjointBianchiNorm.frobSq_adjAction_sub_zero_of_comm
+  , ``YangMillsBlueprint.Certificates.general_adjoint_bianchi_defect_pos
+  , ``YangMillsBlueprint.Certificates.canonical_so3_adjoint_bianchi_defect_gt_three
+  , ``YangMillsBlueprint.Certificates.canonical_cartan_commuting_bianchi_zero
   ]
 
 private def requiredNonemptyStructs : List Name :=
@@ -361,6 +399,10 @@ private def requiredNonemptyStructs : List Name :=
   , ``YangMillsBlueprint.Certificates.CenterlessGroupGapCert
   , ``YangMillsBlueprint.Certificates.FILSChessboardCert
   , ``YangMillsBlueprint.Certificates.ThickVortexSpreadingCert
+  , ``YangMillsBlueprint.Certificates.GaugeInvariantCosetCert
+  , ``YangMillsBlueprint.Certificates.BianchiCubeDefectCert
+  , ``YangMillsBlueprint.Certificates.SliceTransferGapCert
+  , ``YangMillsBlueprint.Certificates.GeneralGroupBianchiCert
   ]
 
 private def auditSingleTheorem (declName : Name) : MetaM Unit := do
@@ -624,5 +666,28 @@ theorem check_su5_gap_gt_jordan_unconditional :
 #print axioms VortexSpreadingBound.spreadTrigCost_lt_of_cutoff
 #print axioms YangMillsBlueprint.Certificates.thick_vortex_spread_cost_lt_conditional
 #print axioms YangMillsBlueprint.Certificates.canonical_thick_vortex_w16_lt_tenth
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.GaugeInvariantCosetCert)
+#print axioms CosetSignMagnitudeCreutz.creutzRatio_factorization
+#print axioms CosetSignMagnitudeCreutz.creutzRatio_pos_of_sign_dominance
+#print axioms YangMillsBlueprint.Certificates.gauge_invariant_coset_creutz_gap_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_gauge_invariant_coset_creutz_pos
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.BianchiCubeDefectCert)
+#print axioms NonAbelianBianchiDefect.transportDiffNormSq_eq
+#print axioms NonAbelianBianchiDefect.unit_transportDiffNormSq_ge
+#print axioms YangMillsBlueprint.Certificates.nonabelian_bianchi_transport_defect_pos
+#print axioms YangMillsBlueprint.Certificates.canonical_bianchi_transport_defect_gt_one
+#print axioms YangMillsBlueprint.Certificates.abelian_collinear_bianchi_defect_zero
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.SliceTransferGapCert)
+#print axioms EffectiveMassTransferGap.spectralCorr_le_pow_mul_zero
+#print axioms EffectiveMassTransferGap.spectralCorr_log_convex
+#print axioms EffectiveMassTransferGap.effectiveMassRatio_mono
+#print axioms YangMillsBlueprint.Certificates.slice_transfer_exponential_decay_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_slice_glueball_t4_decay
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.GeneralGroupBianchiCert)
+#print axioms AdjointBianchiNorm.frobSq_adjAction_sub_eq
+#print axioms AdjointBianchiNorm.frobSq_adjAction_sub_zero_of_comm
+#print axioms YangMillsBlueprint.Certificates.general_adjoint_bianchi_defect_pos
+#print axioms YangMillsBlueprint.Certificates.canonical_so3_adjoint_bianchi_defect_gt_three
+#print axioms YangMillsBlueprint.Certificates.canonical_cartan_commuting_bianchi_zero
 
 end YangMillsBlueprint.VerifyNoTraps

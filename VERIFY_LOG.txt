@@ -1,16 +1,14 @@
 ========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM122)
+Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM132)
 Toolchain: leanprover/lean4:v4.35.0
-Source Commit: 2a713ad (candidate/math-gov-v0.6)
 Build Command: cd formal/yang_mills_blueprint && lake build
+Build Result: Build completed successfully (v1.1.0, YM101-YM132, exit 0)
 Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
 Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 ========================================================================
 
-# Verbatim `#print axioms` Output (YM101-YM122 + MathlibStaging)
+## VerifyNoTraps.lean Live Output (YM101-YM132)
 
-'PolydiskMajorant.total_weight_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PolydiskMajorant.summable_geometric_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PolydiskMajorant.tsum_geometric_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.sin_sq_le_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.integral_sin_sq_le_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -20,88 +18,55 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 'QuaternionCentralizer.adjointTwistQuadraticForm_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'QuaternionCentralizer.adjointTwistQuadraticForm_ge_three' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ClockShiftMatrices.clock3_mul_shift3_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ClockShiftMatrices.chord_normSq_eq_four_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ClockShiftMatrices.mul_le_sin_of_mem_Icc' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ClockShiftMatrices.jordan_spectral_gap_le_four_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ClockShiftMatrices.secant_spectral_gap_le_four_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ClockShiftMatrices.four_mul_sin_pi_div_five_sq_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'ClockShiftMatrices.four_mul_sin_pi_div_five_sq_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
-'NonAbelianCommutatorStiffness.lagrange_identity' depends on axioms: [propext, Quot.sound]
-'NonAbelianCommutatorStiffness.triadQuarticEnergy_ge_three_mul_sq' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'CoprimeSpiralTwist.spiralMap_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CoprimeSpiralTwist.spiral_both_coords_ne_zero' depends on axioms: [propext, Quot.sound]
-'CoprimeSpiralTwist.two_plane_gap_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
-'QuarticQuantumStiffness.cubic_defect_factorization' depends on axioms: [propext, Quot.sound]
-'QuarticQuantumStiffness.three_mul_sq_le_variationalEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CartanCoxeterRigidity.g2CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CartanCoxeterRigidity.f4CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ExponentialAreaScreening.cubic_div_twenty_seven_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ExponentialAreaScreening.quartic_mul_exp_neg_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AsymptoticFreedomFlow.inv_runningCoupling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AsymptoticFreedomFlow.runningCoupling_le_inv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
-'AsymptoticFreedomFlow.telescoped_sum_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SpectralMassGapBridge.coercivity_orthogonal_decomp' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SpectralMassGapBridge.coercivity_pos_of_perp_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
-'SpectralMassGapBridge.exp_neg_mul_anti' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TEKFourPlaneLattice.shearMap_bijective' depends on axioms: [propext, Quot.sound]
-'TEKFourPlaneLattice.quadratic_rank_gap_le_four_mul_sin_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'TEKFourPlaneLattice.four_plane_additive_gap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ExceptionalE8Cartan.e8_sum_of_squares_eq' depends on axioms: [propext, Quot.sound]
-'ExceptionalE8Cartan.e8CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClassicalAndExceptionalCartan.aCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClassicalAndExceptionalCartan.aCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClassicalAndExceptionalCartan.e6CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'ClassicalAndExceptionalCartan.e7CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LeviStratumCounting.stratum_dimension_conservation' depends on axioms: [propext, Quot.sound]
-'LeviStratumCounting.alphaHarm_central_le_alphaReg' depends on axioms: [propext, Classical.choice, Quot.sound]
-'LoopBootstrapMomentBounds.loop_eq_level4_completed_square_le' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'BCDClassicalCartan.bCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'BCDClassicalCartan.cCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'BCDClassicalCartan.dCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
-'BCDClassicalCartan.bCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'BCDClassicalCartan.cCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'BCDClassicalCartan.dCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'BCDClassicalCartan.d4CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CurvedBrascampLiebDefect.tree_gauge_dof_conservation' depends on axioms: [propext, Quot.sound]
-'CurvedBrascampLiebDefect.effectiveStiffness_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CurvedBrascampLiebDefect.curvedVarianceBound_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
-'CurvedBrascampLiebDefect.curvedVarianceBound_le_of_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PeierlsRGContourFlow.rgTensionStep_sub_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PeierlsRGContourFlow.criticalTension_lt_rgTensionStep' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PeierlsRGContourFlow.lt_rgTensionStep_of_gt_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
-'OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_nonneg' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_anti_time' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_anti_volume' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'OsterwalderSchraderBridge.clustering_extraction_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'UrsellCumulantNonGaussian.ursellFour_eq_zero_iff' depends on axioms: [propext]
-'UrsellCumulantNonGaussian.ursellFour_neg_of_subgaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
-'UrsellCumulantNonGaussian.ursellFour_ne_zero_of_subgaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
-'YangMillsBlueprint.Certificates.small_field_contraction_lt_one_conditional' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_polymer_tsum_bound' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.su2_real_weyl_collar_integral_lt_margin' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'YangMillsBlueprint.Certificates.su2_toron_zero_mode_eliminated' depends on axioms: [propext,
+'YangMillsBlueprint.Certificates.su3_clock_shift_commutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.su5_real_spectral_gap_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.sun_real_jordan_gap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.sun_real_secant_gap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+inferInstance : Nonempty Certificates.ZeroModeStiffnessCert
+inferInstance : Nonempty Certificates.SpiralTwistCert
+'NonAbelianCommutatorStiffness.lagrange_identity' depends on axioms: [propext, Quot.sound]
+'NonAbelianCommutatorStiffness.cross_normSq_eq_of_ortho' depends on axioms: [propext, Quot.sound]
+'NonAbelianCommutatorStiffness.triadQuarticEnergy_ge_three_mul_sq' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'YangMillsBlueprint.Certificates.su3_clock_shift_spectral_gap_eq_three' depends on axioms: [propext,
+'CoprimeSpiralTwist.spiralMap_eq_zero_iff' depends on axioms: [propext, Quot.sound]
+'CoprimeSpiralTwist.spiral_both_coords_ne_zero' depends on axioms: [propext, Quot.sound]
+'CoprimeSpiralTwist.spiralMap_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoprimeSpiralTwist.two_plane_gap_lower_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.su2_zero_mode_quartic_stiffness_pos_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_zero_mode_energy_eq_three' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'YangMillsBlueprint.Certificates.spiral_twist_both_planes_nonzero' depends on axioms: [propext, Quot.sound]
 'YangMillsBlueprint.Certificates.sun_coprime_spiral_two_plane_gap_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.LuscherQuantumGapCert
+inferInstance : Nonempty Certificates.CenterlessGroupRigidityCert
+'QuarticQuantumStiffness.cubic_defect_factorization' depends on axioms: [propext, Quot.sound]
+'QuarticQuantumStiffness.variationalEnergy_sub_min_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'QuarticQuantumStiffness.three_mul_sq_le_variationalEnergy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'QuarticQuantumStiffness.variationalEnergy_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CartanCoxeterRigidity.g2CartanDet_eq_one' depends on axioms: [propext, Quot.sound]
+'CartanCoxeterRigidity.two_mul_g2CartanForm_eq' depends on axioms: [propext, Quot.sound]
+'CartanCoxeterRigidity.six_mul_f4CartanForm_eq' depends on axioms: [propext, Quot.sound]
+'CartanCoxeterRigidity.g2CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CartanCoxeterRigidity.f4CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.luscher_zero_mode_quantum_gap_ge_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_luscher_quantum_gap_pos' depends on axioms: [propext,
@@ -113,50 +78,38 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 'YangMillsBlueprint.Certificates.f4_coxeter_cartan_zero_mode_eliminated' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'YangMillsBlueprint.Certificates.g2_unit_root_stiffness' depends on axioms: [propext, Classical.choice, Quot.sound]
+inferInstance : Nonempty Certificates.VortexAreaScreeningCert
+inferInstance : Nonempty Certificates.AsymptoticFreedomCert
+'ExponentialAreaScreening.cubic_div_twenty_seven_le_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ExponentialAreaScreening.quartic_mul_exp_neg_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AsymptoticFreedomFlow.inv_runningCoupling_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AsymptoticFreedomFlow.runningCoupling_le_inv_mul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AsymptoticFreedomFlow.telescoping_step_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'AsymptoticFreedomFlow.telescoped_sum_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.vortex_free_energy_defect_le_real' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_vortex_defect_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.uv_running_coupling_contraction_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_uv_coupling_lt_one' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'YangMillsBlueprint.Certificates.real_mass_gap_spec_excited_pos' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.canonical_clustering_decay_le' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.tek_quadratic_rank_gap_le' depends on axioms: [propext, Classical.choice, Quot.sound]
-'YangMillsBlueprint.Certificates.canonical_tek_four_plane_gap_gt_one' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.e8_coxeter_cartan_zero_mode_eliminated' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.e8_unit_simple_root_stiffness' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.su_an_cartan_zero_mode_eliminated' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.e6_coxeter_cartan_zero_mode_eliminated' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.e7_coxeter_cartan_zero_mode_eliminated' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.su_n_levi_stratum_mode_balance' depends on axioms: [propext, Quot.sound]
-'YangMillsBlueprint.Certificates.su3_central_vs_regular_exponent_eval' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.crossover_level4_bootstrap_window' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.canonical_crossover_rhs_eval' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.crossover_level4_domino_coupling_conditional' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
+inferInstance : Nonempty Certificates.BCDClassicalCartanCert
+'BCDClassicalCartan.bCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.cCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.dCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.bCartanForm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.cCartanForm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.dCartanForm_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.bCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.cCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.dCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.d4CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMillsBlueprint.Certificates.so_odd_bn_cartan_zero_mode_eliminated' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -169,29 +122,88 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 'YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'YangMillsBlueprint.Certificates.tree_gauge_dof_balance' depends on axioms: [propext, Quot.sound]
-'YangMillsBlueprint.Certificates.curved_variance_bound_le_conditional' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
+inferInstance : Nonempty Certificates.TreeGaugeBrascampLiebCert
+inferInstance : Nonempty Certificates.VortexRGPersistenceCert
+inferInstance : Nonempty Certificates.OSReconstructionCert
+inferInstance : Nonempty Certificates.NonTrivialityWitnessCert
+inferInstance : Nonempty Certificates.ClayBoundaryMasterBundle
+'CurvedBrascampLiebDefect.tree_gauge_dof_conservation' depends on axioms: [propext, Quot.sound]
+'CurvedBrascampLiebDefect.curvedVarianceBound_le_of_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PeierlsRGContourFlow.lt_rgTensionStep_of_gt_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OsterwalderSchraderBridge.clustering_extraction_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UrsellCumulantNonGaussian.ursellFour_ne_zero_of_subgaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_curved_brascamp_lieb_eval' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.peierls_rg_tension_amplifies_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_vortex_rg_persistence_eval' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
-'YangMillsBlueprint.Certificates.os_clustering_and_vortex_suppression_conditional' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_os_correlator_envelope_le' depends on axioms: [propext,
- Classical.choice,
- Quot.sound]
-'YangMillsBlueprint.Certificates.subgaussian_ursell_nontrivial_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_ursell_four_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMillsBlueprint.Certificates.clay_millennium_boundary_master_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.DobrushinMixingBridgeCert
+inferInstance : Nonempty Certificates.InductiveVortexRGCert
+inferInstance : Nonempty Certificates.SpatialBlockRPCert
+'CurvedGroupLogSobolev.dobrushin_holley_stroock_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'InductivePeierlsRGBridge.rgTrajectory_ge_floor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SpatialBlockRP.rpKernelForm_convex_comb_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.dobrushin_global_log_sobolev_gap_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.inductive_peierls_tension_floor_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_spatial_block_rp_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.SymanzikContinuumCert
+inferInstance : Nonempty Certificates.ContinuumOPEWitnessCert
+'SymanzikRotationalBound.symanzikBound_le_linear' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SymanzikRotationalBound.symanzikBound_lt_of_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ShortDistanceOPEWitness.ne_zero_of_abs_ge_ope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_symanzik_rotational_lt_tenth' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.continuum_ope_four_point_nontrivial_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_ope_lower_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+inferInstance : Nonempty Certificates.TomboulisRougheningCert
+inferInstance : Nonempty Certificates.ContinuumTightnessCert
+inferInstance : Nonempty Certificates.CenterlessGroupGapCert
+'TomboulisCharacterFlow.characterTrajectory_le_geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EquicontinuousTightnessBridge.clustering_limit_of_vanishing_cutoffs' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CenterlessWeylAlcoveGap.weylAlcoveCoerciveGap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.tomboulis_character_flow_decays_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.continuum_clustering_limit_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_centerless_g2_combined_gap_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.FILSChessboardCert
+'ChessboardHolderBound.chessboard_defect_le_of_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ChessboardHolderBound.chessboard_cluster_suppression' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.fils_chessboard_cluster_decay_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_fils_chessboard_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.ThickVortexSpreadingCert
+'VortexSpreadingBound.spreadTrigCost_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'VortexSpreadingBound.spreadTrigCost_lt_of_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.thick_vortex_spread_cost_lt_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_thick_vortex_w16_lt_tenth' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

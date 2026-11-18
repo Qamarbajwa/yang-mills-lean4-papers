@@ -29,6 +29,16 @@ import YangMillsBlueprint.MathlibStaging.CurvedBrascampLiebDefect
 import YangMillsBlueprint.MathlibStaging.PeierlsRGContourFlow
 import YangMillsBlueprint.MathlibStaging.OsterwalderSchraderBridge
 import YangMillsBlueprint.MathlibStaging.UrsellCumulantNonGaussian
+import YangMillsBlueprint.MathlibStaging.CurvedGroupLogSobolev
+import YangMillsBlueprint.MathlibStaging.InductivePeierlsRGBridge
+import YangMillsBlueprint.MathlibStaging.SpatialBlockRP
+import YangMillsBlueprint.MathlibStaging.SymanzikRotationalBound
+import YangMillsBlueprint.MathlibStaging.ShortDistanceOPEWitness
+import YangMillsBlueprint.MathlibStaging.TomboulisCharacterFlow
+import YangMillsBlueprint.MathlibStaging.EquicontinuousTightnessBridge
+import YangMillsBlueprint.MathlibStaging.CenterlessWeylAlcoveGap
+import YangMillsBlueprint.MathlibStaging.ChessboardHolderBound
+import YangMillsBlueprint.MathlibStaging.VortexSpreadingBound
 import YangMillsBlueprint.Certificates.YM101_CauchyPolydiskCert
 import YangMillsBlueprint.Certificates.YM102_WeylCollarCert
 import YangMillsBlueprint.Certificates.YM103_SU2TwistRigidityCert
@@ -51,6 +61,16 @@ import YangMillsBlueprint.Certificates.YM119_VortexRGPersistenceCert
 import YangMillsBlueprint.Certificates.YM120_OSReconstructionCert
 import YangMillsBlueprint.Certificates.YM121_NonTrivialityWitnessCert
 import YangMillsBlueprint.Certificates.YM122_ClayBoundaryMasterCert
+import YangMillsBlueprint.Certificates.YM123_DobrushinMixingBridgeCert
+import YangMillsBlueprint.Certificates.YM124_InductiveVortexRGCert
+import YangMillsBlueprint.Certificates.YM125_SpatialBlockRPCert
+import YangMillsBlueprint.Certificates.YM126_SymanzikContinuumCert
+import YangMillsBlueprint.Certificates.YM127_ContinuumOPEWitnessCert
+import YangMillsBlueprint.Certificates.YM128_TomboulisRougheningCert
+import YangMillsBlueprint.Certificates.YM129_ContinuumTightnessCert
+import YangMillsBlueprint.Certificates.YM130_CenterlessGroupGapCert
+import YangMillsBlueprint.Certificates.YM131_FILSChessboardCert
+import YangMillsBlueprint.Certificates.YM132_ThickVortexSpreadingCert
 
 /-!
 # Hardened Metaprogramming AST & Axiom Auditor (`VerifyNoTraps`)
@@ -259,6 +279,55 @@ private def auditedTheorems : List Name :=
   , ``YangMillsBlueprint.Certificates.subgaussian_ursell_nontrivial_conditional
   , ``YangMillsBlueprint.Certificates.canonical_ursell_four_eval
   , ``YangMillsBlueprint.Certificates.clay_millennium_boundary_master_conditional
+  , ``CurvedGroupLogSobolev.dobrushinGlobalGap_pos
+  , ``CurvedGroupLogSobolev.dobrushinGlobalGap_ge_of_bounds
+  , ``CurvedGroupLogSobolev.holleyStroockFactor_pos
+  , ``CurvedGroupLogSobolev.holleyStroockFactor_anti
+  , ``CurvedGroupLogSobolev.dobrushin_holley_stroock_pos
+  , ``InductivePeierlsRGBridge.floor_le_rgStep_of_le
+  , ``InductivePeierlsRGBridge.rgTrajectory_ge_floor
+  , ``InductivePeierlsRGBridge.rgTrajectory_strict_above_critical
+  , ``SpatialBlockRP.rpKernelForm_nonneg
+  , ``SpatialBlockRP.rpKernelForm_add_nonneg
+  , ``SpatialBlockRP.rpKernelForm_convex_comb_nonneg
+  , ``YangMillsBlueprint.Certificates.dobrushin_global_log_sobolev_gap_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_dobrushin_mixing_eval
+  , ``YangMillsBlueprint.Certificates.inductive_peierls_tension_floor_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_inductive_vortex_rg_eval
+  , ``YangMillsBlueprint.Certificates.spatial_block_reflection_positivity_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_spatial_block_rp_nonneg
+  , ``SymanzikRotationalBound.symanzikBound_nonneg
+  , ``SymanzikRotationalBound.symanzikBound_le_linear
+  , ``SymanzikRotationalBound.symanzikBound_lt_of_cutoff
+  , ``ShortDistanceOPEWitness.opeFourPointLower_pos
+  , ``ShortDistanceOPEWitness.ne_zero_of_abs_ge_ope
+  , ``YangMillsBlueprint.Certificates.symanzik_rotational_restoration_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_symanzik_rotational_lt_tenth
+  , ``YangMillsBlueprint.Certificates.continuum_ope_four_point_nontrivial_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_ope_lower_pos
+  , ``TomboulisCharacterFlow.characterWeightStep_le_mul
+  , ``TomboulisCharacterFlow.characterTrajectory_le_geom
+  , ``EquicontinuousTightnessBridge.limit_le_of_forall_pos_add
+  , ``EquicontinuousTightnessBridge.clustering_limit_of_vanishing_cutoffs
+  , ``EquicontinuousTightnessBridge.joint_cutoff_sum_lt
+  , ``CenterlessWeylAlcoveGap.adjointGapFloor_pos
+  , ``CenterlessWeylAlcoveGap.weylAlcoveCoerciveGap_pos
+  , ``YangMillsBlueprint.Certificates.tomboulis_character_flow_decays_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_tomboulis_blocked_step_eval
+  , ``YangMillsBlueprint.Certificates.continuum_clustering_limit_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_joint_cutoff_lt_tenth
+  , ``YangMillsBlueprint.Certificates.centerless_adjoint_gap_pos_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_centerless_g2_combined_gap_pos
+  , ``ChessboardHolderBound.chessboard_defect_le_of_pow
+  , ``ChessboardHolderBound.chessboard_cluster_suppression
+  , ``ChessboardHolderBound.chessboard_strict_threshold_lt
+  , ``YangMillsBlueprint.Certificates.fils_chessboard_cluster_decay_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_fils_chessboard_eval
+  , ``VortexSpreadingBound.one_sub_cos_le_sq_div_two
+  , ``VortexSpreadingBound.spreadTrigCost_le
+  , ``VortexSpreadingBound.spreadTrigCost_lt_of_cutoff
+  , ``YangMillsBlueprint.Certificates.thick_vortex_spread_cost_lt_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_thick_vortex_w16_lt_tenth
   ]
 
 private def requiredNonemptyStructs : List Name :=
@@ -282,6 +351,16 @@ private def requiredNonemptyStructs : List Name :=
   , ``YangMillsBlueprint.Certificates.OSReconstructionCert
   , ``YangMillsBlueprint.Certificates.NonTrivialityWitnessCert
   , ``YangMillsBlueprint.Certificates.ClayBoundaryMasterBundle
+  , ``YangMillsBlueprint.Certificates.DobrushinMixingBridgeCert
+  , ``YangMillsBlueprint.Certificates.InductiveVortexRGCert
+  , ``YangMillsBlueprint.Certificates.SpatialBlockRPCert
+  , ``YangMillsBlueprint.Certificates.SymanzikContinuumCert
+  , ``YangMillsBlueprint.Certificates.ContinuumOPEWitnessCert
+  , ``YangMillsBlueprint.Certificates.TomboulisRougheningCert
+  , ``YangMillsBlueprint.Certificates.ContinuumTightnessCert
+  , ``YangMillsBlueprint.Certificates.CenterlessGroupGapCert
+  , ``YangMillsBlueprint.Certificates.FILSChessboardCert
+  , ``YangMillsBlueprint.Certificates.ThickVortexSpreadingCert
   ]
 
 private def auditSingleTheorem (declName : Name) : MetaM Unit := do
@@ -509,5 +588,41 @@ theorem check_su5_gap_gt_jordan_unconditional :
 #print axioms YangMillsBlueprint.Certificates.canonical_os_correlator_envelope_le
 #print axioms YangMillsBlueprint.Certificates.canonical_ursell_four_eval
 #print axioms YangMillsBlueprint.Certificates.clay_millennium_boundary_master_conditional
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.DobrushinMixingBridgeCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.InductiveVortexRGCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.SpatialBlockRPCert)
+#print axioms CurvedGroupLogSobolev.dobrushin_holley_stroock_pos
+#print axioms InductivePeierlsRGBridge.rgTrajectory_ge_floor
+#print axioms SpatialBlockRP.rpKernelForm_convex_comb_nonneg
+#print axioms YangMillsBlueprint.Certificates.dobrushin_global_log_sobolev_gap_conditional
+#print axioms YangMillsBlueprint.Certificates.inductive_peierls_tension_floor_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_spatial_block_rp_nonneg
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.SymanzikContinuumCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.ContinuumOPEWitnessCert)
+#print axioms SymanzikRotationalBound.symanzikBound_le_linear
+#print axioms SymanzikRotationalBound.symanzikBound_lt_of_cutoff
+#print axioms ShortDistanceOPEWitness.ne_zero_of_abs_ge_ope
+#print axioms YangMillsBlueprint.Certificates.canonical_symanzik_rotational_lt_tenth
+#print axioms YangMillsBlueprint.Certificates.continuum_ope_four_point_nontrivial_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_ope_lower_pos
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.TomboulisRougheningCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.ContinuumTightnessCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.CenterlessGroupGapCert)
+#print axioms TomboulisCharacterFlow.characterTrajectory_le_geom
+#print axioms EquicontinuousTightnessBridge.clustering_limit_of_vanishing_cutoffs
+#print axioms CenterlessWeylAlcoveGap.weylAlcoveCoerciveGap_pos
+#print axioms YangMillsBlueprint.Certificates.tomboulis_character_flow_decays_conditional
+#print axioms YangMillsBlueprint.Certificates.continuum_clustering_limit_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_centerless_g2_combined_gap_pos
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.FILSChessboardCert)
+#print axioms ChessboardHolderBound.chessboard_defect_le_of_pow
+#print axioms ChessboardHolderBound.chessboard_cluster_suppression
+#print axioms YangMillsBlueprint.Certificates.fils_chessboard_cluster_decay_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_fils_chessboard_eval
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.ThickVortexSpreadingCert)
+#print axioms VortexSpreadingBound.spreadTrigCost_le
+#print axioms VortexSpreadingBound.spreadTrigCost_lt_of_cutoff
+#print axioms YangMillsBlueprint.Certificates.thick_vortex_spread_cost_lt_conditional
+#print axioms YangMillsBlueprint.Certificates.canonical_thick_vortex_w16_lt_tenth
 
 end YangMillsBlueprint.VerifyNoTraps

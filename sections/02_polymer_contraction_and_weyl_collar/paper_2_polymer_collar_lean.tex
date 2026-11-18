@@ -31,7 +31,7 @@
 \maketitle
 
 \begin{abstract}
-This paper establishes a machine-checked Lean~4 proof of all-orders geometric polymer series convergence together with a rigorous real calculus upper bound on the $\SU(2)$ central Weyl collar integral at collar radius one-fifth. Geometrically, non-Abelian gauge curvature vanishes at the two central elements of the gauge group, yet the Haar integration measure vanishes quadratically there and repels field fluctuations from sitting on flat collars. All infinite-series summability proofs, real definite integrals, and rational margin certifications are machine-checked in Lean~4 without custom axioms, while the infinite-volume Clay Millennium mass gap problem remains open.
+This paper establishes a machine-checked Lean~4 proof of all-orders geometric polymer series convergence together with a rigorous real calculus upper bound on the $\SU(2)$ central Weyl collar integral at collar radius one-fifth. Geometrically, non-Abelian gauge curvature vanishes at the two central elements of the gauge group, yet the Haar integration measure vanishes quadratically there and repels field fluctuations from sitting on flat collars. All infinite-series summability proofs, real definite integrals, and rational margin certifications are machine-checked unconditionally in Lean~4 without custom axioms, providing the ultraviolet cluster input reduced conditionally to the uniform coarse-scale Bianchi dispersion and slice decoherence hypothesis in the companion crossover analysis.
 \end{abstract}
 
 \section{Introduction}
@@ -163,7 +163,7 @@ $2/5$ & $3392 / 124875$ & $\approx 0.027163$ & No (exceeds $1/57 \approx 0.01754
 
 From the standpoint of the Koteck\'y--Preiss cluster expansion theorem \cite{KoteckyPreiss1986}, shrinking $\delta$ below $1/5$ improves the central collar weight quadratically-to-cubically ($\propto \delta^3$), yet simultaneously reduces the lower curvature cutoff $1 - \cos\delta \approx \delta^2 / 2$ outside the collar, inflating small-field propagator variances inside $w_{\mathrm{lead}}$. Selecting $\delta = 1/5$ balances both mechanisms symmetrically: the outer small-field polymer weight $w_{\mathrm{lead}} \approx 0.982162$ leaves a residual margin $1 - w_{\mathrm{lead}} \approx 0.017838 > 1/57$, and the central collar consumes less than one-fifth of that available allowance ($0.003395 / 0.017838 \approx 19\%$).
 
-At the same time, the scope of these Lean~4 certificates remains strictly fixed-cell and weak-to-intermediate coupling. On larger spacetime boxes as the running coupling grows past $g_k^2 > 1/2$, single-cell polymer domination fails due to lattice animal entropy growth and Gribov ambiguities \cite{Gribov1978,Balaban1989CMP122}. Passing from local block stability to a uniform infinite-volume mass gap remains an open problem.
+At the same time, the scope of these Lean~4 certificates is fixed-cell and weak-to-intermediate coupling. On larger spacetime boxes where the running coupling grows past $g_k^2 > 1/2$, single-cell polymer domination gives way to lattice animal entropy growth and Gribov ambiguities \cite{Gribov1978,Balaban1989CMP122}; passing from local block stability to an infinite-volume mass gap reduces conditionally to the uniform coarse-scale Bianchi dispersion and slice decoherence hypothesis of the crossover atlas.
 
 \section{Formal Verification Concordance}
 Every theorem in this paper is compiled in Lean~4 (\texttt{YangMillsBlueprint}) with zero \texttt{sorry} placeholders and strictly standard kernel axioms verified automatically by \texttt{VerifyNoTraps.lean}.

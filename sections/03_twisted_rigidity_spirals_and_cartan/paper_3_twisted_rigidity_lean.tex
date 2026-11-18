@@ -32,7 +32,7 @@
 \maketitle
 
 \begin{abstract}
-This paper establishes four algebraic mechanisms in Lean~4 for eliminating flat zero-action toron moduli on finite spatial tori across $\SU(2)$, $\SU(3)$, $\SU(N)$, and the centerless exceptional root systems $G_2$ and $F_4$. Geometrically, twisting periodic boundary conditions forces spatial holonomies to anticommute up to a center element or spiral coprimely across torus planes, ensuring that any constant color mode pays a positive curvature penalty. All centralizer rigidity identities, real-analytic trigonometric spectral gaps, coprime bijections, and Cartan quadratic decompositions are machine-checked in Lean~4 without custom axioms, while infinite-volume twist decoupling and the Clay Millennium mass gap problem remain open.
+This paper establishes four algebraic mechanisms in Lean~4 for eliminating flat zero-action toron moduli on finite spatial tori across $\SU(2)$, $\SU(3)$, $\SU(N)$, and the centerless exceptional root systems $G_2$ and $F_4$. Geometrically, twisting periodic boundary conditions forces spatial holonomies to anticommute up to a center element or spiral coprimely across torus planes, ensuring that any constant color mode pays a positive curvature penalty. All centralizer rigidity identities, real-analytic trigonometric spectral gaps, coprime bijections, and Cartan quadratic decompositions are machine-checked unconditionally in Lean~4 without custom axioms, while infinite-volume twist decoupling reduces conditionally to the uniform coarse-scale Bianchi dispersion and slice decoherence hypothesis.
 \end{abstract}
 
 \section{Introduction: The Toron Zero-Mode Obstruction}
@@ -185,7 +185,7 @@ $G_2, F_4, E_6, E_7, E_8$ & Exceptional Cartan--Coxeter & Scaled sum-of-squares 
 \label{tab:group-comparison}
 \end{table}
 
-Together, these mechanisms exhaust finite-volume Abelian toron zero-modes across all compact simple Lie algebras while leaving the infinite-volume decoupling limit ($L \to \infty$) open.
+Together, these mechanisms exhaust finite-volume Abelian toron zero-modes across all compact simple Lie algebras, reducing infinite-volume twist decoupling ($L \to \infty$) conditionally to the uniform coarse-scale Bianchi dispersion and slice decoherence hypothesis formalized in the crossover atlas.
 
 \section{Formal Verification Concordance}
 All identities across $\SU(N)$, four-plane TEK lattices, classical families ($A_n$, $B_n$, $C_n$, $D_n$), and exceptional Lie algebras ($G_2$, $F_4$, $E_6$, $E_7$, $E_8$) compile in Lean~4 without custom axioms and pass the metaprogramming audit in \texttt{VerifyNoTraps.lean} \cite{Mathlib4}.

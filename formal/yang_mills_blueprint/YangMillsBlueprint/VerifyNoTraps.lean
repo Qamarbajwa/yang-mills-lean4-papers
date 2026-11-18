@@ -47,6 +47,7 @@ import YangMillsBlueprint.MathlibStaging.StokesAdjointDispersion
 import YangMillsBlueprint.MathlibStaging.SliceMarkovTensorization
 import YangMillsBlueprint.MathlibStaging.ScreenedDipoleVariance
 import YangMillsBlueprint.MathlibStaging.CoarseSliceDecoherence
+import YangMillsBlueprint.MathlibStaging.BianchiDyadicAccumulation
 import YangMillsBlueprint.Certificates.YM101_CauchyPolydiskCert
 import YangMillsBlueprint.Certificates.YM102_WeylCollarCert
 import YangMillsBlueprint.Certificates.YM103_SU2TwistRigidityCert
@@ -87,6 +88,7 @@ import YangMillsBlueprint.Certificates.YM137_StokesBianchiDispersionCert
 import YangMillsBlueprint.Certificates.YM138_SliceTensorGapCert
 import YangMillsBlueprint.Certificates.YM139_BianchiScreenedVarianceCert
 import YangMillsBlueprint.Certificates.YM140_CoarseSliceDobrushinCert
+import YangMillsBlueprint.Certificates.YM141_BianchiDyadicAccumulationCert
 
 /-!
 # Hardened Metaprogramming AST & Axiom Auditor (`VerifyNoTraps`)
@@ -407,6 +409,18 @@ private def auditedTheorems : List Name :=
   , ``YangMillsBlueprint.Certificates.canonical_coarse_slice_k3_eval
   , ``YangMillsBlueprint.Certificates.coarse_slice_sq_margin_pos
   , ``YangMillsBlueprint.Certificates.coarse_slice_dobrushin_gap_conditional
+  , ``BianchiDyadicAccumulation.one_sub_dyadicLossStep
+  , ``BianchiDyadicAccumulation.one_sub_iteratedDyadicLoss_eq
+  , ``BianchiDyadicAccumulation.lt_dyadicLossStep_of_pos_of_lt_one
+  , ``BianchiDyadicAccumulation.dyadicLossStep_lt_one
+  , ``BianchiDyadicAccumulation.iteratedDyadicLoss_zero
+  , ``BianchiDyadicAccumulation.iteratedDyadicLoss_mem_Ioo
+  , ``YangMillsBlueprint.Certificates.canonical_dyadic_k1_eq
+  , ``YangMillsBlueprint.Certificates.canonical_dyadic_k2_eq
+  , ``YangMillsBlueprint.Certificates.canonical_dyadic_k2_gt_third
+  , ``YangMillsBlueprint.Certificates.abelian_dyadic_loss_zero
+  , ``YangMillsBlueprint.Certificates.dyadic_bianchi_step_amplifies
+  , ``YangMillsBlueprint.Certificates.dyadic_bianchi_saturation_conditional
   ]
 
 private def requiredNonemptyStructs : List Name :=
@@ -448,6 +462,7 @@ private def requiredNonemptyStructs : List Name :=
   , ``YangMillsBlueprint.Certificates.SliceTensorGapCert
   , ``YangMillsBlueprint.Certificates.BianchiScreenedVarianceCert
   , ``YangMillsBlueprint.Certificates.CoarseSliceDobrushinCert
+  , ``YangMillsBlueprint.Certificates.BianchiDyadicAccumulationCert
   ]
 
 private def auditSingleTheorem (declName : Name) : MetaM Unit := do
@@ -766,5 +781,18 @@ theorem check_su5_gap_gt_jordan_unconditional :
 #print axioms YangMillsBlueprint.Certificates.canonical_coarse_slice_k3_eval
 #print axioms YangMillsBlueprint.Certificates.coarse_slice_sq_margin_pos
 #print axioms YangMillsBlueprint.Certificates.coarse_slice_dobrushin_gap_conditional
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.BianchiDyadicAccumulationCert)
+#print axioms BianchiDyadicAccumulation.one_sub_dyadicLossStep
+#print axioms BianchiDyadicAccumulation.one_sub_iteratedDyadicLoss_eq
+#print axioms BianchiDyadicAccumulation.lt_dyadicLossStep_of_pos_of_lt_one
+#print axioms BianchiDyadicAccumulation.dyadicLossStep_lt_one
+#print axioms BianchiDyadicAccumulation.iteratedDyadicLoss_zero
+#print axioms BianchiDyadicAccumulation.iteratedDyadicLoss_mem_Ioo
+#print axioms YangMillsBlueprint.Certificates.canonical_dyadic_k1_eq
+#print axioms YangMillsBlueprint.Certificates.canonical_dyadic_k2_eq
+#print axioms YangMillsBlueprint.Certificates.canonical_dyadic_k2_gt_third
+#print axioms YangMillsBlueprint.Certificates.abelian_dyadic_loss_zero
+#print axioms YangMillsBlueprint.Certificates.dyadic_bianchi_step_amplifies
+#print axioms YangMillsBlueprint.Certificates.dyadic_bianchi_saturation_conditional
 
 end YangMillsBlueprint.VerifyNoTraps

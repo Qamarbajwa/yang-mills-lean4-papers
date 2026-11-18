@@ -1,13 +1,13 @@
 ========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM140)
+Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM141)
 Toolchain: leanprover/lean4:v4.35.0
 Build Command: cd formal/yang_mills_blueprint && lake build
-Build Result: Build completed successfully (v1.3.0, YM101-YM140, exit 0)
+Build Result: Build completed successfully (YM101-YM141, exit 0)
 Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
 Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 ========================================================================
 
-## VerifyNoTraps.lean Live Output (YM101-YM140)
+## VerifyNoTraps.lean Live Output (YM101-YM141)
 
 'PolydiskMajorant.tsum_geometric_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.sin_sq_le_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -308,5 +308,26 @@ inferInstance : Nonempty Certificates.CoarseSliceDobrushinCert
  Quot.sound]
 'YangMillsBlueprint.Certificates.coarse_slice_sq_margin_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMillsBlueprint.Certificates.coarse_slice_dobrushin_gap_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.BianchiDyadicAccumulationCert
+'BianchiDyadicAccumulation.one_sub_dyadicLossStep' depends on axioms: [propext, Quot.sound]
+'BianchiDyadicAccumulation.one_sub_iteratedDyadicLoss_eq' depends on axioms: [propext, Quot.sound]
+'BianchiDyadicAccumulation.lt_dyadicLossStep_of_pos_of_lt_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'BianchiDyadicAccumulation.dyadicLossStep_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BianchiDyadicAccumulation.iteratedDyadicLoss_zero' depends on axioms: [propext, Quot.sound]
+'BianchiDyadicAccumulation.iteratedDyadicLoss_mem_Ioo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_dyadic_k1_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_dyadic_k2_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_dyadic_k2_gt_third' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.abelian_dyadic_loss_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.dyadic_bianchi_step_amplifies' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.dyadic_bianchi_saturation_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

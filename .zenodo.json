@@ -71,6 +71,7 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/SliceMarkovTensorization.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ScreenedDipoleVariance.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CoarseSliceDecoherence.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/BianchiDyadicAccumulation.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM101_CauchyPolydiskCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM102_WeylCollarCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM103_SU2TwistRigidityCert.lean",
@@ -110,6 +111,7 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM137_StokesBianchiDispersionCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM138_SliceTensorGapCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM139_BianchiScreenedVarianceCert.lean",
-    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM140_CoarseSliceDobrushinCert.lean"
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM140_CoarseSliceDobrushinCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM141_BianchiDyadicAccumulationCert.lean"
   ]
 }

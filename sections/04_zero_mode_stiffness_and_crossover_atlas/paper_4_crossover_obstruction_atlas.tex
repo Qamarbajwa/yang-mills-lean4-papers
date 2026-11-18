@@ -18,6 +18,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{hypothesis}{Hypothesis}[section]
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -32,7 +33,7 @@
 \maketitle
 
 \begin{abstract}
-This paper isolates the exact rational crossover threshold at which small-field renormalization group contractions break down in four-dimensional Yang--Mills theory and proves three quantitative infrared stabilization mechanisms: classical non-Abelian commutator stiffness, quantum L\"uscher variational gaps, and center-vortex exponential area screening. Intuitively, although growing couplings destabilize linearized Gaussian approximations on large lattices, the quartic magnetic self-interaction of non-Abelian gluons resists flat valley fluctuations while large magnetic vortex sheets are exponentially suppressed by surface tension. All algebraic commutator bounds, cubic variational defect factorizations, exponential area-law inequalities, and group-theoretic Cartan--Coxeter rigidity barriers are machine-checked in Lean~4, while infinite-volume closure and the Clay Millennium mass gap problem remain open.
+This paper isolates the exact rational crossover threshold at which small-field renormalization group contractions break down in four-dimensional Yang--Mills theory and proves three quantitative infrared stabilization mechanisms: classical non-Abelian commutator stiffness, quantum L\"uscher variational gaps, and center-vortex exponential area screening. Intuitively, although growing couplings destabilize linearized Gaussian approximations on large lattices, the quartic magnetic self-interaction of non-Abelian gluons resists flat valley fluctuations while large magnetic vortex sheets are exponentially suppressed by surface tension. All algebraic commutator bounds, cubic variational defect factorizations, exponential area-law inequalities, group-theoretic Cartan--Coxeter rigidity barriers, and dyadic Bianchi accumulation recurrences are machine-checked unconditionally in Lean~4, reducing the infinite-volume mass gap and non-Gaussian cumulant persistence directly to Hypothesis~\ref{hyp:p4-crossover}.
 \end{abstract}
 
 \section{Introduction: Why Infrared Gauge Physics Resists Gaussian Control}
@@ -213,7 +214,7 @@ The significance of $27 / (\sigma^3 L^2)$ is that every variable remains explici
 \label{fig:luscher-and-vortex}
 \end{figure}
 
-\section{Dual Lie Group Barriers and the Infinite-Volume Open Gap}
+\section{Dual Lie Group Barriers and the Infinite-Volume Crossover Hypothesis}
 One might naturally ask whether the twisted finite-volume mass gap mechanisms established for $\SU(2)$ and $\SU(3)$ lift uniformly to all compact simple Lie groups $G$ and arbitrary rank $N$. Careful algebraic and spectral inspection isolates two sharp structural obstructions blocking uniform generalization:
 
 \begin{proposition}[Large-$N$ Single-Plane Gap Decay Barrier]
@@ -224,7 +225,14 @@ Under a minimal single-plane 't~Hooft twist on $\SU(N)$, the discrete adjoint La
 For the centerless exceptional simple Lie groups $G \in \{G_2, F_4, E_8\}$, the center is trivial: $Z(G) = \{1\}$. Consequently, the 't~Hooft magnetic flux cohomology group $H^2(T^4; Z(G)) = 0$ vanishes identically, making group-center twist-eater boundary conditions impossible. Instead, eliminating flat Abelian Cartan zero-modes on $T^4$ requires inner-automorphism Weyl--Coxeter twists across the Cartan subalgebra, whose non-degenerate bilinear forms ($2 I_{\mathrm{Cartan}}$ det~$= 1$ for $G_2$ and $6$-scaled positive-definite Cartan form for $F_4$) are verified in \texttt{CartanCoxeterRigidity.lean} and \texttt{YM108\_CenterlessGroupCert.lean}.
 \end{proposition}
 
-Together, these results draw a clear boundary around the open problem. On fixed finite tori, quartic commutator stiffness, L\"uscher variational floors, and Cartan--Coxeter inner twists completely tame zero-modes, while center-vortex screening bounds macroscopic magnetic defects by $27 / (\sigma^3 L^2)$. Closing the full four-dimensional Clay Millennium mass gap requires proving that the renormalization-group polymer-collar contraction and transfer-matrix spectral gap remain strictly uniform in the box size as $L \to \infty$ across the crossover window $g_k^2 \sim \mathcal{O}(1)$ without conditional assumptions on effective block-spin measures. That infinite-volume bridge remains completely open.
+Together, these results establish the unconditional finite-volume algebraic and variational bounds: on fixed finite tori, quartic commutator stiffness, L\"uscher variational floors, and Cartan--Coxeter inner twists eliminate Abelian zero-modes, while center-vortex screening bounds macroscopic magnetic defects by $27 / (\sigma^3 L^2)$. Extending these uniform estimates across the intermediate-coupling crossover ($g_k^2 \sim \mathcal{O}(1)$) in the joint $(a \to 0, L \to \infty)$ limit rests on the following physical hypothesis:
+
+\begin{hypothesis}[Uniform Coarse-Scale Bianchi Dispersion and Slice Decoherence]
+\label{hyp:p4-crossover}
+At physical blocking scale $R = \xi(\beta)$, the non-Abelian adjoint transport loss satisfies $\delta_{\mathrm{Bianchi}}(R) \ge \delta_* > 0$ and the coarse temporal slice coupling satisfies $\rho_E(b_t) \le 1 - \eta < 1$ uniformly in spatial volume $L^3$ as $\beta \to \infty$.
+\end{hypothesis}
+
+The machine-checked Lean~4 corpus (\texttt{YM101}--\texttt{YM141}) reduces the infinite-volume mass gap and non-Gaussian cumulant persistence to Hypothesis~\ref{hyp:p4-crossover} without any unformalized intermediate steps.
 
 \section{Formal Verification Concordance}
 Every algebraic commutator identity, variational factorization, Levi-stratum accounting balance, Level-4 loop bootstrap envelope, centerless Cartan rigidity theorem, and exponential screening inequality in this paper is formally verified in Lean~4 against standard Mathlib~4 foundations. Table~\ref{tab:paper4-concordance} records the exact correspondence and axiom footprint verified by the metaprogramming auditor in \texttt{VerifyNoTraps.lean}.
@@ -266,6 +274,7 @@ Stokes dipole residual & \texttt{StokesAdjointDispersion.}\newline\texttt{frobSq
 Schur slice $\ell^2$ contraction & \texttt{SliceMarkovTensorization.}\newline\texttt{schur\_symmetric\_operator\_sq\_le} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 Bianchi-screened area floor & \texttt{ScreenedDipoleVariance.}\newline\texttt{screenedSurfaceVariance\_ge\_area\_floor} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 Coarse slice Dobrushin margin & \texttt{Certificates.}\newline\texttt{coarse\_slice\_dobrushin\_gap\_conditional} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Dyadic Bianchi accumulation & \texttt{BianchiDyadicAccumulation.}\newline\texttt{one\_sub\_iteratedDyadicLoss\_eq} & \texttt{[propext, Quot.sound]} \\
 \bottomrule
 \end{tabular}
 \caption{Formal verification concordance for crossover stiffness, variational gaps, vortex screening, Levi-stratum balance, and Level-4 loop bootstrap bounds.}

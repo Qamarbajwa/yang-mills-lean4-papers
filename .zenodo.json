@@ -1,6 +1,7 @@
 {
   "title": "Four-Dimensional Lattice Yang-Mills Modular Research Bundle and Lean 4 Formal Verification Certificates",
-  "description": "Synchronized modular release bundle containing four micro-papers (PDF and LaTeX source), ten Mathlib-ready Lean 4 foundational modules (MathlibStaging), ten domain certificate modules (YM101-YM110), and the Lean 4 verification ledger for Yang-Mills finite-volume ultraviolet construction, polymer-collar contraction, twisted toron rigidity, and infrared crossover obstructions. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
+  "description": "Synchronized modular release bundle (v0.7.0) containing four micro-papers (PDF and LaTeX source), seventeen Mathlib-ready Lean 4 foundational modules (MathlibStaging), seventeen domain certificate modules (YM101-YM117) completing 100% Killing-Cartan zero-mode closure, four-plane TEK bounds, Levi-stratum mode accounting, and Level-4 loop bootstrap envelopes, together with the Lean 4 verification ledger. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
+  "version": "0.7.0",
   "upload_type": "software",
   "license": "Apache-2.0",
   "creators": [
@@ -41,6 +42,13 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CartanCoxeterRigidity.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ExponentialAreaScreening.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/AsymptoticFreedomFlow.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/SpectralMassGapBridge.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/TEKFourPlaneLattice.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ExceptionalE8Cartan.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ClassicalAndExceptionalCartan.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/LeviStratumCounting.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/LoopBootstrapMomentBounds.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/BCDClassicalCartan.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM101_CauchyPolydiskCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM102_WeylCollarCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM103_SU2TwistRigidityCert.lean",
@@ -50,6 +58,13 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM107_LuscherQuantumGapCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM108_CenterlessGroupCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM109_VortexAreaScreeningCert.lean",
-    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM110_AsymptoticFreedomCert.lean"
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM110_AsymptoticFreedomCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM111_ClayTargetSpecCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM112_TEKFourPlaneCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM113_E8CartanRigidityCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM114_ClassicalExceptionalCartanCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM115_LeviStratumCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM116_CrossoverBootstrapCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM117_BCDClassicalCartanCert.lean"
   ]
 }

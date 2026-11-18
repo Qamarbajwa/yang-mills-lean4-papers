@@ -1,14 +1,14 @@
 ========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM116)
+Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM117)
 Toolchain: leanprover/lean4:v4.35.0
-Source Commit: ee1bc51 (candidate/math-gov-v0.6)
+Source Commit: b2b893b (candidate/math-gov-v0.6)
 Build Command: cd formal/yang_mills_blueprint && lake build
-Build Result: Build completed successfully (2878 jobs, exit 0)
+Build Result: Build completed successfully (2880 jobs, exit 0)
 Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
 Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 ========================================================================
 
-# Verbatim `#print axioms` Output (YM101-YM116 + MathlibStaging)
+# Verbatim `#print axioms` Output (YM101-YM117 + MathlibStaging)
 
 'PolydiskMajorant.total_weight_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PolydiskMajorant.summable_geometric_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -57,6 +57,13 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 'LoopBootstrapMomentBounds.loop_eq_level4_completed_square_le' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
+'BCDClassicalCartan.bCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.cCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.dCartanForm_eq_sum_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.bCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.cCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.dCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BCDClassicalCartan.d4CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMillsBlueprint.Certificates.small_field_contraction_lt_one_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -129,5 +136,17 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.crossover_level4_domino_coupling_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.so_odd_bn_cartan_zero_mode_eliminated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.sp_cn_cartan_zero_mode_eliminated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.spin_dn_cartan_zero_mode_eliminated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

@@ -24,6 +24,7 @@ import YangMillsBlueprint.MathlibStaging.ExceptionalE8Cartan
 import YangMillsBlueprint.MathlibStaging.ClassicalAndExceptionalCartan
 import YangMillsBlueprint.MathlibStaging.LeviStratumCounting
 import YangMillsBlueprint.MathlibStaging.LoopBootstrapMomentBounds
+import YangMillsBlueprint.MathlibStaging.BCDClassicalCartan
 import YangMillsBlueprint.Certificates.YM101_CauchyPolydiskCert
 import YangMillsBlueprint.Certificates.YM102_WeylCollarCert
 import YangMillsBlueprint.Certificates.YM103_SU2TwistRigidityCert
@@ -40,6 +41,7 @@ import YangMillsBlueprint.Certificates.YM113_E8CartanRigidityCert
 import YangMillsBlueprint.Certificates.YM114_ClassicalExceptionalCartanCert
 import YangMillsBlueprint.Certificates.YM115_LeviStratumCert
 import YangMillsBlueprint.Certificates.YM116_CrossoverBootstrapCert
+import YangMillsBlueprint.Certificates.YM117_BCDClassicalCartanCert
 
 /-!
 # Hardened Metaprogramming AST & Axiom Auditor (`VerifyNoTraps`)
@@ -210,6 +212,20 @@ private def auditedTheorems : List Name :=
   , ``YangMillsBlueprint.Certificates.crossover_level4_bootstrap_window
   , ``YangMillsBlueprint.Certificates.canonical_crossover_rhs_eval
   , ``YangMillsBlueprint.Certificates.crossover_level4_domino_coupling_conditional
+  , ``BCDClassicalCartan.bCartanForm_eq_sum_sq
+  , ``BCDClassicalCartan.cCartanForm_eq_sum_sq
+  , ``BCDClassicalCartan.dCartanForm_eq_sum_sq
+  , ``BCDClassicalCartan.bCartanForm_nonneg
+  , ``BCDClassicalCartan.cCartanForm_nonneg
+  , ``BCDClassicalCartan.dCartanForm_nonneg
+  , ``BCDClassicalCartan.bCartanForm_eq_zero_iff
+  , ``BCDClassicalCartan.cCartanForm_eq_zero_iff
+  , ``BCDClassicalCartan.dCartanForm_eq_zero_iff
+  , ``BCDClassicalCartan.d4CartanForm_eq_zero_iff
+  , ``YangMillsBlueprint.Certificates.so_odd_bn_cartan_zero_mode_eliminated
+  , ``YangMillsBlueprint.Certificates.sp_cn_cartan_zero_mode_eliminated
+  , ``YangMillsBlueprint.Certificates.spin_dn_cartan_zero_mode_eliminated
+  , ``YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated
   ]
 
 private def requiredNonemptyStructs : List Name :=
@@ -227,6 +243,7 @@ private def requiredNonemptyStructs : List Name :=
   , ``YangMillsBlueprint.Certificates.ClassicalExceptionalCartanCert
   , ``YangMillsBlueprint.Certificates.LeviStratumCert
   , ``YangMillsBlueprint.Certificates.CrossoverBootstrapCert
+  , ``YangMillsBlueprint.Certificates.BCDClassicalCartanCert
   ]
 
 private def auditSingleTheorem (declName : Name) : MetaM Unit := do
@@ -424,5 +441,20 @@ theorem check_su5_gap_gt_jordan_unconditional :
 #print axioms YangMillsBlueprint.Certificates.canonical_vortex_defect_lt_one
 #print axioms YangMillsBlueprint.Certificates.uv_running_coupling_contraction_conditional
 #print axioms YangMillsBlueprint.Certificates.canonical_uv_coupling_lt_one
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.BCDClassicalCartanCert)
+#print axioms BCDClassicalCartan.bCartanForm_eq_sum_sq
+#print axioms BCDClassicalCartan.cCartanForm_eq_sum_sq
+#print axioms BCDClassicalCartan.dCartanForm_eq_sum_sq
+#print axioms BCDClassicalCartan.bCartanForm_nonneg
+#print axioms BCDClassicalCartan.cCartanForm_nonneg
+#print axioms BCDClassicalCartan.dCartanForm_nonneg
+#print axioms BCDClassicalCartan.bCartanForm_eq_zero_iff
+#print axioms BCDClassicalCartan.cCartanForm_eq_zero_iff
+#print axioms BCDClassicalCartan.dCartanForm_eq_zero_iff
+#print axioms BCDClassicalCartan.d4CartanForm_eq_zero_iff
+#print axioms YangMillsBlueprint.Certificates.so_odd_bn_cartan_zero_mode_eliminated
+#print axioms YangMillsBlueprint.Certificates.sp_cn_cartan_zero_mode_eliminated
+#print axioms YangMillsBlueprint.Certificates.spin_dn_cartan_zero_mode_eliminated
+#print axioms YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated
 
 end YangMillsBlueprint.VerifyNoTraps

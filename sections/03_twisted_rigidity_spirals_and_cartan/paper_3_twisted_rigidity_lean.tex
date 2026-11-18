@@ -162,32 +162,33 @@ The algebraic mechanism behind both sum-of-squares decompositions is triangular 
 \label{fig:spiral-and-g2}
 \end{figure}
 
-Table~\ref{tab:group-comparison} summarizes the exact twist mechanism, verified lower bound, and asymptotic behavior across each gauge family examined above.
+Table~\ref{tab:group-comparison} summarizes the exact twist mechanism, verified lower bound, and asymptotic behavior across every simple Lie family in the Killing--Cartan classification ($A_n$, $B_n$, $C_n$, $D_n$, $G_2$, $F_4$, $E_6$, $E_7$, $E_8$) as well as four-plane Twisted Eguchi--Kawai (TEK) lattices.
 
 \begin{table}[ht]
 \centering
-\small
+\scriptsize
 \begin{tabular}{@{}llll@{}}
 \toprule
-Gauge Group & Twist Construction & Verified Spectral / Cartan Bound & Large-Rank Behavior \\
+Gauge Family & Twist Construction & Verified Spectral / Cartan Bound & Large-Rank / Center Status \\
 \midrule
 $\SU(2)$ & Quaternions $(\mathbf{i}, \mathbf{j})$ & $\lambda_{\min} = 4 \ge 3$ & Fixed rank \\
 $\SU(3)$ & Clock--shift $(C_\omega, S)$ & $\lambda_{\min} = 3$ (Eisenstein min) & Fixed rank \\
 $\SU(5)$ & Single-plane twist & $\lambda_{\min} = (5-\sqrt{5})/2 > 199/144$ & Fixed rank \\
 $\SU(6)$ & Single-plane twist & $\lambda_{\min} = 1 = 36/6^2$ & Secant tight point \\
-$\SU(N)$ ($N \ge 2$) & Single / 2-plane spiral & $\lambda_{\min} \ge 16/N^2$ (2-plane: $32/N^2$) & Decays as $\mathcal{O}(1/N^2)$ \\
-$G_2$ (rank 2) & Cartan--Coxeter twist & $2 Q_{G_2} = (2x-3y)^2 + 3y^2$ ($\det = 1$) & Centerless ($Z = 1$) \\
-$F_4$ (rank 4) & Cartan--Coxeter twist & Positive-definite 4-square sum & Centerless ($Z = 1$) \\
+$\SU(N)$ ($N \ge 2$) & 2-plane / 4-plane TEK & $\lambda_{\min} \ge 32/N^2$ (4-plane: $64/N^2$) & Decays as $\mathcal{O}(1/N^2)$ \\
+$A_n$ ($\SU(n+1)$) & Cartan--Coxeter form & $(n+1)\, Q_{A_n} = \sum \text{squares}$ & Arbitrary rank $n \ge 1$ \\
+$B_{n+1}, C_{n+2}, D_{n+3}$ & Classical Cartan completion & $Q_{B,C,D} = \sum \text{squares} = 0 \Leftrightarrow x=0$ & Arbitrary rank ($D_4$ triality) \\
+$G_2, F_4, E_6, E_7, E_8$ & Exceptional Cartan--Coxeter & Scaled sum-of-squares $= 0 \Leftrightarrow x=0$ & Complete exceptional closure \\
 \bottomrule
 \end{tabular}
-\caption{Summary of finite-volume zero-mode rigidity mechanisms across simple Lie groups.}
+\caption{Summary of finite-volume zero-mode rigidity mechanisms across the complete Killing--Cartan classification and $\SU(N)$ twisted lattices.}
 \label{tab:group-comparison}
 \end{table}
 
-Together, these mechanisms exhaust finite-volume Abelian toron zero-modes across compact simple gauge groups while leaving the infinite-volume decoupling limit ($L \to \infty$) open.
+Together, these mechanisms exhaust finite-volume Abelian toron zero-modes across all compact simple Lie algebras while leaving the infinite-volume decoupling limit ($L \to \infty$) open.
 
 \section{Formal Verification Concordance}
-All identities across $\SU(2)$, $\SU(3)$, $\SU(N)$, $G_2$, and $F_4$ compile in Lean~4 without custom axioms and pass the metaprogramming audit in \texttt{VerifyNoTraps.lean} \cite{Mathlib4}.
+All identities across $\SU(N)$, four-plane TEK lattices, classical families ($A_n$, $B_n$, $C_n$, $D_n$), and exceptional Lie algebras ($G_2$, $F_4$, $E_6$, $E_7$, $E_8$) compile in Lean~4 without custom axioms and pass the metaprogramming audit in \texttt{VerifyNoTraps.lean} \cite{Mathlib4}.
 
 \begin{table}[ht]
 \centering
@@ -204,12 +205,17 @@ Asymptotic secant gap $36/N^2$ & \texttt{ClockShiftMatrices.}\newline\texttt{sec
 Exact $\SU(5)$ gap $> 199/144$ & \texttt{ClockShiftMatrices.}\newline\texttt{four\_mul\_sin\_pi\_div\_five\_sq\_gt} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
 Coprime spiral bijection & \texttt{CoprimeSpiralTwist.}\newline\texttt{spiralMap\_bijective} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
 Two-plane spiral bound $32/N^2$ & \texttt{Certificates.}\newline\texttt{sun\_coprime\_spiral\_two\_plane\_gap\_le} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
-$G_2$ determinant equal to $1$ & \texttt{CartanCoxeterRigidity.}\newline\texttt{g2CartanDet\_eq\_one} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
-$G_2$ zero-mode elimination & \texttt{Certificates.}\newline\texttt{g2\_coxeter\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
-$F_4$ zero-mode elimination & \texttt{Certificates.}\newline\texttt{f4\_coxeter\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Four-plane TEK shear bijection & \texttt{TEKFourPlaneLattice.}\newline\texttt{shearMap\_bijective} & \texttt{[propext, Quot.sound]} \\
+Canonical TEK 4-plane gap $> 1$ & \texttt{Certificates.}\newline\texttt{canonical\_tek\_four\_plane\_gap\_gt\_one} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+$G_2$ and $F_4$ Cartan elimination & \texttt{Certificates.}\newline\texttt{g2\_coxeter\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Arbitrary-rank $A_n$ Cartan form & \texttt{Certificates.}\newline\texttt{su\_an\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Exceptional $E_6, E_7, E_8$ forms & \texttt{Certificates.}\newline\texttt{e6\_}, \texttt{e7\_}, \texttt{e8\_coxeter\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Arbitrary-rank $B_n$ ($\mathrm{SO}(2n+1)$) & \texttt{Certificates.}\newline\texttt{so\_odd\_bn\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Arbitrary-rank $C_n$ ($\mathrm{Sp}(n)$) & \texttt{Certificates.}\newline\texttt{sp\_cn\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Arbitrary-rank $D_n$ / $D_4$ ($\mathrm{Spin}$) & \texttt{Certificates.}\newline\texttt{spin\_dn\_}, \texttt{spin8\_d4\_cartan\_zero\_mode\_eliminated} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 \bottomrule
 \end{tabular}
-\caption{Formal verification concordance for twist-eater, coprime spiral, and Cartan--Coxeter rigidity.}
+\caption{Formal verification concordance for twist-eater, coprime spiral, TEK four-plane, and complete Killing--Cartan rigidity.}
 \label{tab:paper3-concordance}
 \end{table}
 

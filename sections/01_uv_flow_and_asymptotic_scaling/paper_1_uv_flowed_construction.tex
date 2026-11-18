@@ -173,7 +173,7 @@ certifying unconditionally in Lean~4 (\texttt{canonical\_\-uv\_\-coupling\_\-lt\
 \section{Epistemic Scope and Verification Concordance}
 The finite-volume ultraviolet construction establishes local quantum field existence and relativistic light-cone kinematics, yet remains mathematically decoupled from the macroscopic infrared spectrum. Passing to the infinite-volume limit $L \to \infty$ across the intermediate coupling crossover ($g_k^2 \sim 1$) without losing spectral control remains an open problem; consequently, the Clay Millennium mass gap problem remains open.
 
-Table~\ref{tab:paper1-concordance} lists the formally verified ultraviolet flow declarations in \texttt{YangMillsBlueprint}, audited automatically by \texttt{VerifyNoTraps.lean} against standard kernel axioms \cite{Mathlib4}.
+Table~\ref{tab:paper1-concordance} lists the formally verified ultraviolet flow and real Hilbert-space spectral gap interface declarations in \texttt{YangMillsBlueprint}, audited automatically by \texttt{VerifyNoTraps.lean} against standard kernel axioms \cite{Mathlib4}.
 
 \begin{table}[ht]
 \centering
@@ -189,9 +189,12 @@ Telescoping partial fraction & \texttt{AsymptoticFreedomFlow.}\newline\texttt{te
 Cumulative sum below unity & \texttt{AsymptoticFreedomFlow.}\newline\texttt{telescoped\_sum\_lt\_one} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
 Conditional UV contraction & \texttt{Certificates.}\newline\texttt{uv\_running\_coupling\_contraction\_conditional} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
 Canonical UV step $k=5$ bound & \texttt{Certificates.}\newline\texttt{canonical\_uv\_coupling\_lt\_one} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Orthogonal spectral coercivity & \texttt{SpectralMassGapBridge.}\newline\texttt{coercivity\_orthogonal\_decomp} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Real Hilbert excited positivity & \texttt{Certificates.}\newline\texttt{real\_mass\_gap\_spec\_excited\_pos} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+OS exponential clustering bound & \texttt{Certificates.}\newline\texttt{canonical\_clustering\_decay\_le} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 \bottomrule
 \end{tabular}
-\caption{Formal verification concordance for ultraviolet asymptotic freedom flow in \texttt{YangMillsBlueprint}.}
+\caption{Formal verification concordance for ultraviolet flow and real Hilbert-space spectral specifications in \texttt{YangMillsBlueprint}.}
 \label{tab:paper1-concordance}
 \end{table}
 

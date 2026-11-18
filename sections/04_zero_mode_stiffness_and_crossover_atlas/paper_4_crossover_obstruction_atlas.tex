@@ -227,7 +227,7 @@ For the centerless exceptional simple Lie groups $G \in \{G_2, F_4, E_8\}$, the 
 Together, these results draw a clear boundary around the open problem. On fixed finite tori, quartic commutator stiffness, L\"uscher variational floors, and Cartan--Coxeter inner twists completely tame zero-modes, while center-vortex screening bounds macroscopic magnetic defects by $27 / (\sigma^3 L^2)$. Closing the full four-dimensional Clay Millennium mass gap requires proving that the renormalization-group polymer-collar contraction and transfer-matrix spectral gap remain strictly uniform in the box size as $L \to \infty$ across the crossover window $g_k^2 \sim \mathcal{O}(1)$ without conditional assumptions on effective block-spin measures. That infinite-volume bridge remains completely open.
 
 \section{Formal Verification Concordance}
-Every algebraic commutator identity, variational factorization, centerless Cartan rigidity theorem, and exponential screening inequality in this paper is formally verified in Lean~4 against standard Mathlib~4 foundations. Table~\ref{tab:paper4-concordance} records the exact correspondence and axiom footprint verified by the metaprogramming auditor in \texttt{VerifyNoTraps.lean}.
+Every algebraic commutator identity, variational factorization, Levi-stratum accounting balance, Level-4 loop bootstrap envelope, centerless Cartan rigidity theorem, and exponential screening inequality in this paper is formally verified in Lean~4 against standard Mathlib~4 foundations. Table~\ref{tab:paper4-concordance} records the exact correspondence and axiom footprint verified by the metaprogramming auditor in \texttt{VerifyNoTraps.lean}.
 
 \begin{table}[ht]
 \centering
@@ -245,11 +245,14 @@ Canonical L\"uscher floor & \texttt{Certificates.}\newline\texttt{canonical\_lus
 Cubic exp lower bound & \texttt{ExponentialAreaScreening.}\newline\texttt{cubic\_div\_twenty\_seven\_le\_exp} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 Area screening $\le 27/(\sigma^3 L^2)$ & \texttt{ExponentialAreaScreening.}\newline\texttt{quartic\_mul\_exp\_neg\_sq\_le} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 Canonical defect $< 1$ & \texttt{Certificates.}\newline\texttt{canonical\_vortex\_defect\_lt\_one} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
-$G_2$ Cartan rigidity & \texttt{CartanCoxeterRigidity.}\newline\texttt{g2CartanForm\_eq\_zero\_iff} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
-$F_4$ Cartan rigidity & \texttt{CartanCoxeterRigidity.}\newline\texttt{f4CartanForm\_eq\_zero\_iff} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+$G_2$ \& $F_4$ Cartan rigidity & \texttt{CartanCoxeterRigidity.}\newline\texttt{g2CartanForm\_}, \texttt{f4CartanForm\_eq\_zero\_iff} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Levi-stratum mode balance & \texttt{LeviStratumCounting.}\newline\texttt{stratum\_dimension\_conservation} & \texttt{[propext, Quot.sound]} \\
+$\SU(3)$ harmonic suppression & \texttt{Certificates.}\newline\texttt{su3\_central\_vs\_regular\_exponent\_eval} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Level-4 bootstrap envelope & \texttt{LoopBootstrapMomentBounds.}\newline\texttt{loop\_eq\_level4\_completed\_square\_le} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
+Crossover window certificate & \texttt{Certificates.}\newline\texttt{crossover\_level4\_bootstrap\_window} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} \\
 \bottomrule
 \end{tabular}
-\caption{Formal verification concordance for crossover stiffness, variational gaps, vortex screening, and centerless group rigidity.}
+\caption{Formal verification concordance for crossover stiffness, variational gaps, vortex screening, Levi-stratum balance, and Level-4 loop bootstrap bounds.}
 \label{tab:paper4-concordance}
 \end{table}
 

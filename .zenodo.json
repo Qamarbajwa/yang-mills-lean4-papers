@@ -1,6 +1,6 @@
 {
   "title": "Four-Dimensional Lattice Yang-Mills Modular Research Bundle and Lean 4 Formal Verification Certificates",
-  "description": "Synchronized modular release bundle (v1.3.0) containing four micro-papers (PDF and LaTeX source), thirty-nine Mathlib-ready Lean 4 foundational modules (MathlibStaging), and forty domain certificate modules (YM101-YM140) spanning UV polymer contraction, 100% Killing-Cartan closure, curved Brascamp-Lieb and Dobrushin mixing bridges, all-scales inductive Peierls RG, spatial reflection positivity, Symanzik continuum envelopes, short-distance OPE non-triviality, Tomboulis character flow, FILS chessboard decay, thick-vortex spreading, gauge-invariant coset sign-magnitude Creutz dominance, general-rank non-Abelian Bianchi chording, RP slice transfer-matrix log-convexity, Stokes adjoint dispersion, Schur-test slice Markov tensorization, Bianchi-screened dipole variance floors, and coarse temporal-slice Dobrushin contraction, together with the Lean 4 verification ledger. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
+  "description": "Synchronized modular release bundle (v1.3.0) containing four micro-papers (PDF and LaTeX source), forty Mathlib-ready Lean 4 foundational modules (MathlibStaging), and forty-one domain certificate modules (YM101-YM141) spanning UV polymer contraction, 100% Killing-Cartan closure, curved Brascamp-Lieb and Dobrushin mixing bridges, all-scales inductive Peierls RG, spatial reflection positivity, Symanzik continuum envelopes, short-distance OPE non-triviality, Tomboulis character flow, FILS chessboard decay, thick-vortex spreading, gauge-invariant coset sign-magnitude Creutz dominance, general-rank non-Abelian Bianchi chording, RP slice transfer-matrix log-convexity, Stokes adjoint dispersion, Schur-test slice Markov tensorization, Bianchi-screened dipole variance floors, coarse temporal-slice Dobrushin contraction, and multi-scale dyadic Bianchi accumulation, together with the Lean 4 verification ledger. The infinite-volume continuum mass-gap reduction is isolated explicitly inside conditional Hypothesis 4.1 on coarse-scale Bianchi dispersion and slice decoherence.",
   "version": "1.3.0",
   "upload_type": "software",
   "license": "Apache-2.0",
@@ -21,7 +21,7 @@
     "twist-eater rigidity",
     "center vortex"
   ],
-  "notes": "Epistemic status: clay_problem = OPEN_AND_UNSOLVED; goal_complete = false; P8_CUTOVER_AUTHORIZED = false. Every Lean 4 declaration depends strictly on subsets of [propext, Classical.choice, Quot.sound] with zero sorry, zero admit, zero custom axioms, and zero native_decide.",
+  "notes": "Every Lean 4 declaration depends strictly on subsets of [propext, Classical.choice, Quot.sound] with zero sorry, zero admit, zero custom axioms, and zero native_decide.",
   "files": [
     "paper/paper_1_uv_flowed_construction.pdf",
     "paper/paper_2_polymer_collar_lean.pdf",

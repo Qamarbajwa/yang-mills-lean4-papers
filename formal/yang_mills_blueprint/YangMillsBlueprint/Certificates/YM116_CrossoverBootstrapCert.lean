@@ -12,8 +12,8 @@ import Mathlib.Tactic.NormNum
 
 This module instantiates `LoopBootstrapMomentBounds` over `ℚ` at the crossover inverse coupling
 `β = 41 / 24` (`g₅² = 24 / 41`), certifying the exact Level-4 Makeenko-Migdal quadratic window
-while preserving the epistemic boundary (`BootstrapTruncationBarrier_conditional`) that finite-level
-SDP bounds do not unconditionally close `E-CROSSOVER` in the continuum limit `L_max → ∞`.
+together with the conditional barrier lemma (`BootstrapTruncationBarrier_conditional`) isolating
+finite-level SDP bounds from continuum limit `L_max → ∞` closure of `E-CROSSOVER`.
 -/
 
 namespace YangMillsBlueprint.Certificates

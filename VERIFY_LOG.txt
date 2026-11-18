@@ -1,14 +1,3 @@
-========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM141)
-Toolchain: leanprover/lean4:v4.35.0
-Build Command: cd formal/yang_mills_blueprint && lake build
-Build Result: Build completed successfully (YM101-YM141, exit 0)
-Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
-Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
-========================================================================
-
-## VerifyNoTraps.lean Live Output (YM101-YM141)
-
 'PolydiskMajorant.tsum_geometric_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.sin_sq_le_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.integral_sin_sq_le_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]

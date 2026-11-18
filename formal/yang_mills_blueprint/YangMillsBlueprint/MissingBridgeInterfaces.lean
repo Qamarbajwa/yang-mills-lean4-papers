@@ -17,7 +17,7 @@ import YangMillsBlueprint.BasicTypes
 
 namespace YangMillsBlueprint.Interfaces
 
-/-- Epistemic status of a bridge edge matching `literature/OPEN_EDGE_REGISTER.md`. -/
+/-- Verification status of a bridge edge matching `literature/OPEN_EDGE_REGISTER.md`. -/
 inductive BridgeEdgeStatus where
   | closed
   | regulatedOnly

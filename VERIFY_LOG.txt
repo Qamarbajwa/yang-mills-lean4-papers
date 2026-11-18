@@ -1,13 +1,13 @@
 ========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM136)
+Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM140)
 Toolchain: leanprover/lean4:v4.35.0
 Build Command: cd formal/yang_mills_blueprint && lake build
-Build Result: Build completed successfully (v1.2.0, YM101-YM136, exit 0)
+Build Result: Build completed successfully (v1.3.0, YM101-YM140, exit 0)
 Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
 Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 ========================================================================
 
-## VerifyNoTraps.lean Live Output (YM101-YM136)
+## VerifyNoTraps.lean Live Output (YM101-YM140)
 
 'PolydiskMajorant.tsum_geometric_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
 'CubicSinBounds.sin_sq_le_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -248,5 +248,65 @@ inferInstance : Nonempty Certificates.GeneralGroupBianchiCert
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.canonical_cartan_commuting_bianchi_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.StokesBianchiDispersionCert
+'StokesAdjointDispersion.frobInner_adjAction_self_mul_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'StokesAdjointDispersion.frobSq_coulomb_dipole_noncancellation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'StokesAdjointDispersion.frobSq_exact_cancellation_eq_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'StokesAdjointDispersion.stokes_sum_frobSq_ge_of_bianchi_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.stokes_coulomb_dipole_broken_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_so3_dipole_broken_gt_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_cartan_dipole_cancels_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.stokes_area_variance_persists_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.SliceTensorGapCert
+'SliceMarkovTensorization.schur_symmetric_operator_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SliceMarkovTensorization.rayleigh_abs_le_of_schur' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SliceMarkovTensorization.slice_tensor_contraction_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.slice_tensor_margin_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_slice_tensor_margin_gt_third' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.slice_tensor_uniform_gap_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.BianchiScreenedVarianceCert
+'ScreenedDipoleVariance.screenedVarianceRatio_abelian_collapse' depends on axioms: [propext, Quot.sound]
+'ScreenedDipoleVariance.delta_le_screenedVarianceRatio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ScreenedDipoleVariance.screenedVarianceRatio_pos_of_loss' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ScreenedDipoleVariance.screenedSurfaceVariance_ge_area_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_screened_ratio_nn_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_screened_ratio_full_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.screened_ratio_pos_of_cert' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.bianchi_screened_area_law_variance_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+inferInstance : Nonempty Certificates.CoarseSliceDobrushinCert
+'CoarseSliceDecoherence.coarseSliceCoupling_zero' does not depend on any axioms
+'CoarseSliceDecoherence.coarseSliceCoupling_anti_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoarseSliceDecoherence.coarseSliceCoupling_le_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_coarse_slice_k3_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.coarse_slice_sq_margin_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.coarse_slice_dobrushin_gap_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

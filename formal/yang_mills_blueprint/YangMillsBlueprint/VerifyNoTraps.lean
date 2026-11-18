@@ -43,6 +43,10 @@ import YangMillsBlueprint.MathlibStaging.CosetSignMagnitudeCreutz
 import YangMillsBlueprint.MathlibStaging.NonAbelianBianchiDefect
 import YangMillsBlueprint.MathlibStaging.EffectiveMassTransferGap
 import YangMillsBlueprint.MathlibStaging.AdjointBianchiNorm
+import YangMillsBlueprint.MathlibStaging.StokesAdjointDispersion
+import YangMillsBlueprint.MathlibStaging.SliceMarkovTensorization
+import YangMillsBlueprint.MathlibStaging.ScreenedDipoleVariance
+import YangMillsBlueprint.MathlibStaging.CoarseSliceDecoherence
 import YangMillsBlueprint.Certificates.YM101_CauchyPolydiskCert
 import YangMillsBlueprint.Certificates.YM102_WeylCollarCert
 import YangMillsBlueprint.Certificates.YM103_SU2TwistRigidityCert
@@ -79,6 +83,10 @@ import YangMillsBlueprint.Certificates.YM133_GaugeInvariantCosetCert
 import YangMillsBlueprint.Certificates.YM134_BianchiCubeDefectCert
 import YangMillsBlueprint.Certificates.YM135_SliceTransferGapCert
 import YangMillsBlueprint.Certificates.YM136_GeneralGroupBianchiCert
+import YangMillsBlueprint.Certificates.YM137_StokesBianchiDispersionCert
+import YangMillsBlueprint.Certificates.YM138_SliceTensorGapCert
+import YangMillsBlueprint.Certificates.YM139_BianchiScreenedVarianceCert
+import YangMillsBlueprint.Certificates.YM140_CoarseSliceDobrushinCert
 
 /-!
 # Hardened Metaprogramming AST & Axiom Auditor (`VerifyNoTraps`)
@@ -366,6 +374,39 @@ private def auditedTheorems : List Name :=
   , ``YangMillsBlueprint.Certificates.general_adjoint_bianchi_defect_pos
   , ``YangMillsBlueprint.Certificates.canonical_so3_adjoint_bianchi_defect_gt_three
   , ``YangMillsBlueprint.Certificates.canonical_cartan_commuting_bianchi_zero
+  , ``StokesAdjointDispersion.frobInner_comm
+  , ``StokesAdjointDispersion.frobSq_sub_eq
+  , ``StokesAdjointDispersion.frobSq_add_eq
+  , ``StokesAdjointDispersion.frobInner_adjAction_self_mul_two
+  , ``StokesAdjointDispersion.frobSq_coulomb_dipole_noncancellation
+  , ``StokesAdjointDispersion.frobSq_exact_cancellation_eq_comm
+  , ``StokesAdjointDispersion.stokes_sum_frobSq_ge_of_bianchi_floor
+  , ``YangMillsBlueprint.Certificates.stokes_coulomb_dipole_broken_pos
+  , ``YangMillsBlueprint.Certificates.canonical_so3_dipole_broken_gt_three
+  , ``YangMillsBlueprint.Certificates.canonical_cartan_dipole_cancels_zero
+  , ``YangMillsBlueprint.Certificates.stokes_area_variance_persists_conditional
+  , ``SliceMarkovTensorization.weighted_cs_sq_le
+  , ``SliceMarkovTensorization.schur_symmetric_operator_sq_le
+  , ``SliceMarkovTensorization.rayleigh_abs_le_of_schur
+  , ``SliceMarkovTensorization.slice_tensor_contraction_le
+  , ``YangMillsBlueprint.Certificates.slice_tensor_margin_pos
+  , ``YangMillsBlueprint.Certificates.canonical_slice_tensor_margin_gt_third
+  , ``YangMillsBlueprint.Certificates.slice_tensor_uniform_gap_conditional
+  , ``ScreenedDipoleVariance.screenedVarianceRatio_abelian_collapse
+  , ``ScreenedDipoleVariance.delta_le_screenedVarianceRatio
+  , ``ScreenedDipoleVariance.one_sub_alpha_le_screenedVarianceRatio
+  , ``ScreenedDipoleVariance.screenedVarianceRatio_pos_of_loss
+  , ``ScreenedDipoleVariance.screenedSurfaceVariance_ge_area_floor
+  , ``YangMillsBlueprint.Certificates.canonical_screened_ratio_nn_eq
+  , ``YangMillsBlueprint.Certificates.canonical_screened_ratio_full_eq
+  , ``YangMillsBlueprint.Certificates.screened_ratio_pos_of_cert
+  , ``YangMillsBlueprint.Certificates.bianchi_screened_area_law_variance_conditional
+  , ``CoarseSliceDecoherence.coarseSliceCoupling_zero
+  , ``CoarseSliceDecoherence.coarseSliceCoupling_anti_step
+  , ``CoarseSliceDecoherence.coarseSliceCoupling_le_margin
+  , ``YangMillsBlueprint.Certificates.canonical_coarse_slice_k3_eval
+  , ``YangMillsBlueprint.Certificates.coarse_slice_sq_margin_pos
+  , ``YangMillsBlueprint.Certificates.coarse_slice_dobrushin_gap_conditional
   ]
 
 private def requiredNonemptyStructs : List Name :=
@@ -403,6 +444,10 @@ private def requiredNonemptyStructs : List Name :=
   , ``YangMillsBlueprint.Certificates.BianchiCubeDefectCert
   , ``YangMillsBlueprint.Certificates.SliceTransferGapCert
   , ``YangMillsBlueprint.Certificates.GeneralGroupBianchiCert
+  , ``YangMillsBlueprint.Certificates.StokesBianchiDispersionCert
+  , ``YangMillsBlueprint.Certificates.SliceTensorGapCert
+  , ``YangMillsBlueprint.Certificates.BianchiScreenedVarianceCert
+  , ``YangMillsBlueprint.Certificates.CoarseSliceDobrushinCert
   ]
 
 private def auditSingleTheorem (declName : Name) : MetaM Unit := do
@@ -689,5 +734,37 @@ theorem check_su5_gap_gt_jordan_unconditional :
 #print axioms YangMillsBlueprint.Certificates.general_adjoint_bianchi_defect_pos
 #print axioms YangMillsBlueprint.Certificates.canonical_so3_adjoint_bianchi_defect_gt_three
 #print axioms YangMillsBlueprint.Certificates.canonical_cartan_commuting_bianchi_zero
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.StokesBianchiDispersionCert)
+#print axioms StokesAdjointDispersion.frobInner_adjAction_self_mul_two
+#print axioms StokesAdjointDispersion.frobSq_coulomb_dipole_noncancellation
+#print axioms StokesAdjointDispersion.frobSq_exact_cancellation_eq_comm
+#print axioms StokesAdjointDispersion.stokes_sum_frobSq_ge_of_bianchi_floor
+#print axioms YangMillsBlueprint.Certificates.stokes_coulomb_dipole_broken_pos
+#print axioms YangMillsBlueprint.Certificates.canonical_so3_dipole_broken_gt_three
+#print axioms YangMillsBlueprint.Certificates.canonical_cartan_dipole_cancels_zero
+#print axioms YangMillsBlueprint.Certificates.stokes_area_variance_persists_conditional
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.SliceTensorGapCert)
+#print axioms SliceMarkovTensorization.schur_symmetric_operator_sq_le
+#print axioms SliceMarkovTensorization.rayleigh_abs_le_of_schur
+#print axioms SliceMarkovTensorization.slice_tensor_contraction_le
+#print axioms YangMillsBlueprint.Certificates.slice_tensor_margin_pos
+#print axioms YangMillsBlueprint.Certificates.canonical_slice_tensor_margin_gt_third
+#print axioms YangMillsBlueprint.Certificates.slice_tensor_uniform_gap_conditional
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.BianchiScreenedVarianceCert)
+#print axioms ScreenedDipoleVariance.screenedVarianceRatio_abelian_collapse
+#print axioms ScreenedDipoleVariance.delta_le_screenedVarianceRatio
+#print axioms ScreenedDipoleVariance.screenedVarianceRatio_pos_of_loss
+#print axioms ScreenedDipoleVariance.screenedSurfaceVariance_ge_area_floor
+#print axioms YangMillsBlueprint.Certificates.canonical_screened_ratio_nn_eq
+#print axioms YangMillsBlueprint.Certificates.canonical_screened_ratio_full_eq
+#print axioms YangMillsBlueprint.Certificates.screened_ratio_pos_of_cert
+#print axioms YangMillsBlueprint.Certificates.bianchi_screened_area_law_variance_conditional
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.CoarseSliceDobrushinCert)
+#print axioms CoarseSliceDecoherence.coarseSliceCoupling_zero
+#print axioms CoarseSliceDecoherence.coarseSliceCoupling_anti_step
+#print axioms CoarseSliceDecoherence.coarseSliceCoupling_le_margin
+#print axioms YangMillsBlueprint.Certificates.canonical_coarse_slice_k3_eval
+#print axioms YangMillsBlueprint.Certificates.coarse_slice_sq_margin_pos
+#print axioms YangMillsBlueprint.Certificates.coarse_slice_dobrushin_gap_conditional
 
 end YangMillsBlueprint.VerifyNoTraps

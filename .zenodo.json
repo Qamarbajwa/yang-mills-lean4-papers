@@ -1,7 +1,7 @@
 {
   "title": "Four-Dimensional Lattice Yang-Mills Modular Research Bundle and Lean 4 Formal Verification Certificates",
-  "description": "Synchronized modular release bundle (v1.2.0) containing four micro-papers (PDF and LaTeX source), thirty-five Mathlib-ready Lean 4 foundational modules (MathlibStaging), and thirty-six domain certificate modules (YM101-YM136) spanning UV polymer contraction, 100% Killing-Cartan closure, curved Brascamp-Lieb and Dobrushin mixing bridges, all-scales inductive Peierls RG, spatial reflection positivity, Symanzik continuum envelopes, short-distance OPE non-triviality, Tomboulis character flow, FILS chessboard decay, thick-vortex spreading, gauge-invariant coset sign-magnitude Creutz dominance, general-rank non-Abelian Bianchi chording, and RP slice transfer-matrix log-convexity, together with the Lean 4 verification ledger. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
-  "version": "1.2.0",
+  "description": "Synchronized modular release bundle (v1.3.0) containing four micro-papers (PDF and LaTeX source), thirty-nine Mathlib-ready Lean 4 foundational modules (MathlibStaging), and forty domain certificate modules (YM101-YM140) spanning UV polymer contraction, 100% Killing-Cartan closure, curved Brascamp-Lieb and Dobrushin mixing bridges, all-scales inductive Peierls RG, spatial reflection positivity, Symanzik continuum envelopes, short-distance OPE non-triviality, Tomboulis character flow, FILS chessboard decay, thick-vortex spreading, gauge-invariant coset sign-magnitude Creutz dominance, general-rank non-Abelian Bianchi chording, RP slice transfer-matrix log-convexity, Stokes adjoint dispersion, Schur-test slice Markov tensorization, Bianchi-screened dipole variance floors, and coarse temporal-slice Dobrushin contraction, together with the Lean 4 verification ledger. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
+  "version": "1.3.0",
   "upload_type": "software",
   "license": "Apache-2.0",
   "creators": [
@@ -67,6 +67,10 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/NonAbelianBianchiDefect.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/EffectiveMassTransferGap.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/AdjointBianchiNorm.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/StokesAdjointDispersion.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/SliceMarkovTensorization.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ScreenedDipoleVariance.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CoarseSliceDecoherence.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM101_CauchyPolydiskCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM102_WeylCollarCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM103_SU2TwistRigidityCert.lean",
@@ -102,6 +106,10 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM133_GaugeInvariantCosetCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM134_BianchiCubeDefectCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM135_SliceTransferGapCert.lean",
-    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM136_GeneralGroupBianchiCert.lean"
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM136_GeneralGroupBianchiCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM137_StokesBianchiDispersionCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM138_SliceTensorGapCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM139_BianchiScreenedVarianceCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM140_CoarseSliceDobrushinCert.lean"
   ]
 }

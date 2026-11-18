@@ -1,4 +1,4 @@
-# Four-Dimensional Lattice Yang–Mills Theory: Modular Micro-Papers & Lean 4 Verification (`YM101`–`YM136`, v1.2.0)
+# Four-Dimensional Lattice Yang–Mills Theory: Modular Micro-Papers & Lean 4 Verification (`YM101`–`YM140`, v1.3.0)
 
 **Author:** Qamar Munawer  
 **Affiliation:** Brandenburg University of Technology Cottbus–Senftenberg (BTU Cottbus–Senftenberg), Cottbus, Germany  
@@ -17,4 +17,4 @@
 | [03 — Twisted Rigidity, Spirals & Cartan](sections/03_twisted_rigidity_spirals_and_cartan/) | Quaternion / Sylvester twists, 2D/4D `ZMod N` spirals, complete Killing–Cartan ($A_n,B_n,C_n,D_n,G_2,F_4,E_6,E_7,E_8$), centerless alcove & general adjoint Bianchi bounds | [Paper 3 (PDF)](sections/03_twisted_rigidity_spirals_and_cartan/paper_3_twisted_rigidity_lean.pdf) | `YM103`, `YM104`, `YM106`, `YM108`, `YM112`, `YM113`, `YM114`, `YM117`, `YM130`, `YM136` |
 | [04 — Zero-Mode Stiffness & Crossover Atlas](sections/04_zero_mode_stiffness_and_crossover_atlas/) | Triad stiffness, Lüscher gap, Levi strata, loop bootstrap, Brascamp–Lieb & Dobrushin bridges, inductive Peierls RG, spatial RP, Tomboulis flow, FILS chessboard, thick vortices, GI coset Creutz & 3-cube Bianchi defects | [Paper 4 (PDF)](sections/04_zero_mode_stiffness_and_crossover_atlas/paper_4_crossover_obstruction_atlas.pdf) | `YM105`, `YM107`, `YM109`, `YM115`, `YM116`, `YM118`, `YM119`, `YM122`, `YM123`, `YM124`, `YM125`, `YM128`, `YM131`, `YM132`, `YM133`, `YM134` |
 
-Full kernel `#print axioms` verification output (`YM101`–`YM136`) is archived in [`VERIFY_LOG.txt`](VERIFY_LOG.txt).
+Full kernel `#print axioms` verification output (`YM101`–`YM140`) is archived in [`VERIFY_LOG.txt`](VERIFY_LOG.txt).

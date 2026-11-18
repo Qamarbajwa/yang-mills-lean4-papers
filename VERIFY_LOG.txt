@@ -1,14 +1,13 @@
 ========================================================================
-Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM117)
+Yang-Mills Blueprint Lean 4 Kernel Verification Ledger (YM101-YM122)
 Toolchain: leanprover/lean4:v4.35.0
-Source Commit: b2b893b (candidate/math-gov-v0.6)
+Source Commit: 2a713ad (candidate/math-gov-v0.6)
 Build Command: cd formal/yang_mills_blueprint && lake build
-Build Result: Build completed successfully (2880 jobs, exit 0)
 Audit Command: lake env lean YangMillsBlueprint/VerifyNoTraps.lean
 Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 ========================================================================
 
-# Verbatim `#print axioms` Output (YM101-YM117 + MathlibStaging)
+# Verbatim `#print axioms` Output (YM101-YM122 + MathlibStaging)
 
 'PolydiskMajorant.total_weight_lt_one' depends on axioms: [propext, Classical.choice, Quot.sound]
 'PolydiskMajorant.summable_geometric_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
@@ -64,6 +63,26 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
 'BCDClassicalCartan.cCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'BCDClassicalCartan.dCartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
 'BCDClassicalCartan.d4CartanForm_eq_zero_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvedBrascampLiebDefect.tree_gauge_dof_conservation' depends on axioms: [propext, Quot.sound]
+'CurvedBrascampLiebDefect.effectiveStiffness_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvedBrascampLiebDefect.curvedVarianceBound_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CurvedBrascampLiebDefect.curvedVarianceBound_le_of_margin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PeierlsRGContourFlow.rgTensionStep_sub_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PeierlsRGContourFlow.criticalTension_lt_rgTensionStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PeierlsRGContourFlow.lt_rgTensionStep_of_gt_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_anti_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_anti_volume' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'OsterwalderSchraderBridge.clustering_extraction_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UrsellCumulantNonGaussian.ursellFour_eq_zero_iff' depends on axioms: [propext]
+'UrsellCumulantNonGaussian.ursellFour_neg_of_subgaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'UrsellCumulantNonGaussian.ursellFour_ne_zero_of_subgaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
 'YangMillsBlueprint.Certificates.small_field_contraction_lt_one_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]
@@ -148,5 +167,31 @@ Audit Result: VERIFY_NO_TRAPS_EXIT=0 (0 sorry, 0 opaque, 0 custom axioms)
  Classical.choice,
  Quot.sound]
 'YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.tree_gauge_dof_balance' depends on axioms: [propext, Quot.sound]
+'YangMillsBlueprint.Certificates.curved_variance_bound_le_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_curved_brascamp_lieb_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.peierls_rg_tension_amplifies_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_vortex_rg_persistence_eval' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.os_clustering_and_vortex_suppression_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_os_correlator_envelope_le' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.subgaussian_ursell_nontrivial_conditional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'YangMillsBlueprint.Certificates.canonical_ursell_four_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'YangMillsBlueprint.Certificates.clay_millennium_boundary_master_conditional' depends on axioms: [propext,
  Classical.choice,
  Quot.sound]

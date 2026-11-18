@@ -1,7 +1,7 @@
 {
   "title": "Four-Dimensional Lattice Yang-Mills Modular Research Bundle and Lean 4 Formal Verification Certificates",
-  "description": "Synchronized modular release bundle (v0.7.0) containing four micro-papers (PDF and LaTeX source), seventeen Mathlib-ready Lean 4 foundational modules (MathlibStaging), seventeen domain certificate modules (YM101-YM117) completing 100% Killing-Cartan zero-mode closure, four-plane TEK bounds, Levi-stratum mode accounting, and Level-4 loop bootstrap envelopes, together with the Lean 4 verification ledger. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
-  "version": "0.7.0",
+  "description": "Synchronized modular release bundle (v1.0.0) containing four micro-papers (PDF and LaTeX source), twenty-one Mathlib-ready Lean 4 foundational modules (MathlibStaging), and twenty-two domain certificate modules (YM101-YM122) spanning UV polymer contraction, 100% Killing-Cartan closure, curved Brascamp-Lieb defect margins, Peierls RG surface tension persistence, OS correlator clustering, sub-Gaussian Ursell non-triviality, and master boundary synthesis, together with the Lean 4 verification ledger. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
+  "version": "1.0.0",
   "upload_type": "software",
   "license": "Apache-2.0",
   "creators": [
@@ -49,6 +49,10 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/LeviStratumCounting.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/LoopBootstrapMomentBounds.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/BCDClassicalCartan.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CurvedBrascampLiebDefect.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/PeierlsRGContourFlow.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/OsterwalderSchraderBridge.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/UrsellCumulantNonGaussian.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM101_CauchyPolydiskCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM102_WeylCollarCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM103_SU2TwistRigidityCert.lean",
@@ -65,6 +69,11 @@
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM114_ClassicalExceptionalCartanCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM115_LeviStratumCert.lean",
     "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM116_CrossoverBootstrapCert.lean",
-    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM117_BCDClassicalCartanCert.lean"
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM117_BCDClassicalCartanCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM118_TreeGaugeBrascampLiebCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM119_VortexRGPersistenceCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM120_OSReconstructionCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM121_NonTrivialityWitnessCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM122_ClayBoundaryMasterCert.lean"
   ]
 }

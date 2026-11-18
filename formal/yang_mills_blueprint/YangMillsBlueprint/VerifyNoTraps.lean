@@ -25,6 +25,10 @@ import YangMillsBlueprint.MathlibStaging.ClassicalAndExceptionalCartan
 import YangMillsBlueprint.MathlibStaging.LeviStratumCounting
 import YangMillsBlueprint.MathlibStaging.LoopBootstrapMomentBounds
 import YangMillsBlueprint.MathlibStaging.BCDClassicalCartan
+import YangMillsBlueprint.MathlibStaging.CurvedBrascampLiebDefect
+import YangMillsBlueprint.MathlibStaging.PeierlsRGContourFlow
+import YangMillsBlueprint.MathlibStaging.OsterwalderSchraderBridge
+import YangMillsBlueprint.MathlibStaging.UrsellCumulantNonGaussian
 import YangMillsBlueprint.Certificates.YM101_CauchyPolydiskCert
 import YangMillsBlueprint.Certificates.YM102_WeylCollarCert
 import YangMillsBlueprint.Certificates.YM103_SU2TwistRigidityCert
@@ -42,6 +46,11 @@ import YangMillsBlueprint.Certificates.YM114_ClassicalExceptionalCartanCert
 import YangMillsBlueprint.Certificates.YM115_LeviStratumCert
 import YangMillsBlueprint.Certificates.YM116_CrossoverBootstrapCert
 import YangMillsBlueprint.Certificates.YM117_BCDClassicalCartanCert
+import YangMillsBlueprint.Certificates.YM118_TreeGaugeBrascampLiebCert
+import YangMillsBlueprint.Certificates.YM119_VortexRGPersistenceCert
+import YangMillsBlueprint.Certificates.YM120_OSReconstructionCert
+import YangMillsBlueprint.Certificates.YM121_NonTrivialityWitnessCert
+import YangMillsBlueprint.Certificates.YM122_ClayBoundaryMasterCert
 
 /-!
 # Hardened Metaprogramming AST & Axiom Auditor (`VerifyNoTraps`)
@@ -226,6 +235,30 @@ private def auditedTheorems : List Name :=
   , ``YangMillsBlueprint.Certificates.sp_cn_cartan_zero_mode_eliminated
   , ``YangMillsBlueprint.Certificates.spin_dn_cartan_zero_mode_eliminated
   , ``YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated
+  , ``CurvedBrascampLiebDefect.tree_gauge_dof_conservation
+  , ``CurvedBrascampLiebDefect.effectiveStiffness_pos
+  , ``CurvedBrascampLiebDefect.curvedVarianceBound_pos
+  , ``CurvedBrascampLiebDefect.curvedVarianceBound_le_of_margin
+  , ``PeierlsRGContourFlow.rgTensionStep_sub_critical
+  , ``PeierlsRGContourFlow.criticalTension_lt_rgTensionStep
+  , ``PeierlsRGContourFlow.lt_rgTensionStep_of_gt_critical
+  , ``OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_nonneg
+  , ``OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_anti_time
+  , ``OsterwalderSchraderBridge.finiteVolumeCorrelatorBound_anti_volume
+  , ``OsterwalderSchraderBridge.clustering_extraction_le
+  , ``UrsellCumulantNonGaussian.ursellFour_eq_zero_iff
+  , ``UrsellCumulantNonGaussian.ursellFour_neg_of_subgaussian
+  , ``UrsellCumulantNonGaussian.ursellFour_ne_zero_of_subgaussian
+  , ``YangMillsBlueprint.Certificates.tree_gauge_dof_balance
+  , ``YangMillsBlueprint.Certificates.curved_variance_bound_le_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_curved_brascamp_lieb_eval
+  , ``YangMillsBlueprint.Certificates.peierls_rg_tension_amplifies_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_vortex_rg_persistence_eval
+  , ``YangMillsBlueprint.Certificates.os_clustering_and_vortex_suppression_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_os_correlator_envelope_le
+  , ``YangMillsBlueprint.Certificates.subgaussian_ursell_nontrivial_conditional
+  , ``YangMillsBlueprint.Certificates.canonical_ursell_four_eval
+  , ``YangMillsBlueprint.Certificates.clay_millennium_boundary_master_conditional
   ]
 
 private def requiredNonemptyStructs : List Name :=
@@ -244,6 +277,11 @@ private def requiredNonemptyStructs : List Name :=
   , ``YangMillsBlueprint.Certificates.LeviStratumCert
   , ``YangMillsBlueprint.Certificates.CrossoverBootstrapCert
   , ``YangMillsBlueprint.Certificates.BCDClassicalCartanCert
+  , ``YangMillsBlueprint.Certificates.TreeGaugeBrascampLiebCert
+  , ``YangMillsBlueprint.Certificates.VortexRGPersistenceCert
+  , ``YangMillsBlueprint.Certificates.OSReconstructionCert
+  , ``YangMillsBlueprint.Certificates.NonTrivialityWitnessCert
+  , ``YangMillsBlueprint.Certificates.ClayBoundaryMasterBundle
   ]
 
 private def auditSingleTheorem (declName : Name) : MetaM Unit := do
@@ -456,5 +494,20 @@ theorem check_su5_gap_gt_jordan_unconditional :
 #print axioms YangMillsBlueprint.Certificates.sp_cn_cartan_zero_mode_eliminated
 #print axioms YangMillsBlueprint.Certificates.spin_dn_cartan_zero_mode_eliminated
 #print axioms YangMillsBlueprint.Certificates.spin8_d4_cartan_zero_mode_eliminated
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.TreeGaugeBrascampLiebCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.VortexRGPersistenceCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.OSReconstructionCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.NonTrivialityWitnessCert)
+#check (inferInstance : Nonempty YangMillsBlueprint.Certificates.ClayBoundaryMasterBundle)
+#print axioms CurvedBrascampLiebDefect.tree_gauge_dof_conservation
+#print axioms CurvedBrascampLiebDefect.curvedVarianceBound_le_of_margin
+#print axioms PeierlsRGContourFlow.lt_rgTensionStep_of_gt_critical
+#print axioms OsterwalderSchraderBridge.clustering_extraction_le
+#print axioms UrsellCumulantNonGaussian.ursellFour_ne_zero_of_subgaussian
+#print axioms YangMillsBlueprint.Certificates.canonical_curved_brascamp_lieb_eval
+#print axioms YangMillsBlueprint.Certificates.canonical_vortex_rg_persistence_eval
+#print axioms YangMillsBlueprint.Certificates.canonical_os_correlator_envelope_le
+#print axioms YangMillsBlueprint.Certificates.canonical_ursell_four_eval
+#print axioms YangMillsBlueprint.Certificates.clay_millennium_boundary_master_conditional
 
 end YangMillsBlueprint.VerifyNoTraps

@@ -1,0 +1,14 @@
+.lake/
+**/.lake/
+*.olean
+*.ilean
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.aux
+*.log
+*.out
+*.toc
+.DS_Store
+Thumbs.db

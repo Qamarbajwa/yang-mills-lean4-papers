@@ -1,0 +1,55 @@
+{
+  "title": "Four-Dimensional Lattice Yang-Mills Modular Research Bundle and Lean 4 Formal Verification Certificates",
+  "description": "Synchronized modular release bundle containing four micro-papers (PDF and LaTeX source), ten Mathlib-ready Lean 4 foundational modules (MathlibStaging), ten domain certificate modules (YM101-YM110), and the Lean 4 verification ledger for Yang-Mills finite-volume ultraviolet construction, polymer-collar contraction, twisted toron rigidity, and infrared crossover obstructions. The infinite-volume four-dimensional Clay Millennium Yang-Mills mass gap problem remains open and unsolved.",
+  "upload_type": "software",
+  "license": "Apache-2.0",
+  "creators": [
+    {
+      "name": "Munawer, Qamar",
+      "affiliation": "Brandenburg University of Technology Cottbus-Senftenberg, Cottbus, Germany"
+    }
+  ],
+  "keywords": [
+    "Yang-Mills theory",
+    "Lean 4",
+    "Mathlib4",
+    "formal verification",
+    "lattice gauge theory",
+    "renormalization group",
+    "polymer cluster expansion",
+    "twist-eater rigidity",
+    "center vortex"
+  ],
+  "notes": "Epistemic status: clay_problem = OPEN_AND_UNSOLVED; goal_complete = false; P8_CUTOVER_AUTHORIZED = false. Every Lean 4 declaration depends strictly on subsets of [propext, Classical.choice, Quot.sound] with zero sorry, zero admit, zero custom axioms, and zero native_decide.",
+  "files": [
+    "paper/paper_1_uv_flowed_construction.pdf",
+    "paper/paper_2_polymer_collar_lean.pdf",
+    "paper/paper_3_twisted_rigidity_lean.pdf",
+    "paper/paper_4_crossover_obstruction_atlas.pdf",
+    "paper/paper_1_uv_flowed_construction.tex",
+    "paper/paper_2_polymer_collar_lean.tex",
+    "paper/paper_3_twisted_rigidity_lean.tex",
+    "paper/paper_4_crossover_obstruction_atlas.tex",
+    "paper/VERIFY_LOG.txt",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/PolydiskMajorant.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CubicSinBounds.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/QuaternionCentralizer.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ClockShiftMatrices.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/NonAbelianCommutatorStiffness.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CoprimeSpiralTwist.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/QuarticQuantumStiffness.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/CartanCoxeterRigidity.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/ExponentialAreaScreening.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/MathlibStaging/AsymptoticFreedomFlow.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM101_CauchyPolydiskCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM102_WeylCollarCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM103_SU2TwistRigidityCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM104_SU3ClockShiftCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM105_ZeroModeStiffnessCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM106_SpiralTwistCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM107_LuscherQuantumGapCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM108_CenterlessGroupCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM109_VortexAreaScreeningCert.lean",
+    "formal/yang_mills_blueprint/YangMillsBlueprint/Certificates/YM110_AsymptoticFreedomCert.lean"
+  ]
+}

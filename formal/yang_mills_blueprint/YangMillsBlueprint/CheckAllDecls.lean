@@ -1,0 +1,184 @@
+/-
+  YangMillsBlueprint.CheckAllDecls
+  ==============================
+  Audits every theorem in Part I and Part II and prints axiom dependencies.
+  Expected result: ZERO `sorryAx`, ZERO custom axioms across all declarations.
+-/
+import YangMillsBlueprint.BasicTypes
+import YangMillsBlueprint.YM101Closure
+import YangMillsBlueprint.MissingBridgeInterfaces
+import YangMillsBlueprint.MathlibPR_SchurComplementForms
+import YangMillsBlueprint.BlockWeylCollar
+import YangMillsBlueprint.MathlibPR_CubicCollarBounds
+import YangMillsBlueprint.MathlibPR_QuaternionTwistRigidity
+import YangMillsBlueprint.TwistedFluxonRigidity
+import YangMillsBlueprint.MathlibPR_ClockShiftRigidity
+import YangMillsBlueprint.SUNClockShiftRigidity
+
+#check YangMillsBlueprint.block_mode_dimension_additivity
+#print axioms YangMillsBlueprint.block_mode_dimension_additivity
+
+#check YangMillsBlueprint.levi_stratum_mode_conservation
+#print axioms YangMillsBlueprint.levi_stratum_mode_conservation
+
+#check YangMillsBlueprint.schur_complement_quadratic_identity
+#print axioms YangMillsBlueprint.schur_complement_quadratic_identity
+
+#check YangMillsBlueprint.schur_quadratic_residual_identity
+#print axioms YangMillsBlueprint.schur_quadratic_residual_identity
+
+#check YangMillsBlueprint.schur_coercivity_from_block_pivots
+#print axioms YangMillsBlueprint.schur_coercivity_from_block_pivots
+
+#check YangMillsBlueprint.YM101.ym101_w2loop_exact
+#print axioms YangMillsBlueprint.YM101.ym101_w2loop_exact
+
+#check YangMillsBlueprint.YM101.ym101_cauchy_remainder_exact
+#print axioms YangMillsBlueprint.YM101.ym101_cauchy_remainder_exact
+
+#check YangMillsBlueprint.YM101.ym101_all_orders_reduced_eq
+#print axioms YangMillsBlueprint.YM101.ym101_all_orders_reduced_eq
+
+#check YangMillsBlueprint.YM101.polydisk_geometric_remainder_bound
+#print axioms YangMillsBlueprint.YM101.polydisk_geometric_remainder_bound
+
+#check YangMillsBlueprint.YM101.ym101_all_orders_contraction
+#print axioms YangMillsBlueprint.YM101.ym101_all_orders_contraction
+
+#check YangMillsBlueprint.YM101.ym101_margin_conservation
+#print axioms YangMillsBlueprint.YM101.ym101_margin_conservation
+
+#check YangMillsBlueprint.YM101.ym101_all_orders_margin_gt_one_57th
+#print axioms YangMillsBlueprint.YM101.ym101_all_orders_margin_gt_one_57th
+
+#check YangMillsBlueprint.YM101.ym101_all_orders_margin_gt_decimal_floor
+#print axioms YangMillsBlueprint.YM101.ym101_all_orders_margin_gt_decimal_floor
+
+#check YangMillsBlueprint.YM101.ym101_toron_barrier_exceeds_margin
+#print axioms YangMillsBlueprint.YM101.ym101_toron_barrier_exceeds_margin
+
+#check YangMillsBlueprint.YM101.ym101_suppressed_toron_fits_margin
+#print axioms YangMillsBlueprint.YM101.ym101_suppressed_toron_fits_margin
+
+#check YangMillsBlueprint.Interfaces.check_continuum_obligations_deduction
+#print axioms YangMillsBlueprint.Interfaces.check_continuum_obligations_deduction
+
+#check YangMillsBlueprint.Interfaces.conditional_clay_mass_gap_of_bridges
+#print axioms YangMillsBlueprint.Interfaces.conditional_clay_mass_gap_of_bridges
+
+#check YangMillsBlueprint.Interfaces.bridge_dag_acyclic_rank
+#print axioms YangMillsBlueprint.Interfaces.bridge_dag_acyclic_rank
+
+#check MathlibPR.LinearAlgebra.schur_complement_quadratic_identity
+#print axioms MathlibPR.LinearAlgebra.schur_complement_quadratic_identity
+
+#check MathlibPR.LinearAlgebra.schur_coercivity_from_block_pivots
+#print axioms MathlibPR.LinearAlgebra.schur_coercivity_from_block_pivots
+
+#check MathlibPR.Data.RationalPairs.geometric_cluster_weight_lt_one
+#print axioms MathlibPR.Data.RationalPairs.geometric_cluster_weight_lt_one
+
+#check MathlibPR.Data.RationalPairs.geometric_contraction_margin_gt_one_57th
+#print axioms MathlibPR.Data.RationalPairs.geometric_contraction_margin_gt_one_57th
+
+#check MathlibPR.Data.RationalPairs.geometric_margin_conservation
+#print axioms MathlibPR.Data.RationalPairs.geometric_margin_conservation
+
+#check YangMillsBlueprint.BlockWeylCollar.weyl_collar_composition_eqv
+#print axioms YangMillsBlueprint.BlockWeylCollar.weyl_collar_composition_eqv
+
+#check YangMillsBlueprint.BlockWeylCollar.weyl_cubic_collar_upper_bound
+#print axioms YangMillsBlueprint.BlockWeylCollar.weyl_cubic_collar_upper_bound
+
+#check YangMillsBlueprint.BlockWeylCollar.weyl_cubic_collar_lt_one_fifth_margin
+#print axioms YangMillsBlueprint.BlockWeylCollar.weyl_cubic_collar_lt_one_fifth_margin
+
+#check YangMillsBlueprint.BlockWeylCollar.local_block_total_fits_margin
+#print axioms YangMillsBlueprint.BlockWeylCollar.local_block_total_fits_margin
+
+#check YangMillsBlueprint.BlockWeylCollar.local_block_collar_bulk_contraction_bound
+#print axioms YangMillsBlueprint.BlockWeylCollar.local_block_collar_bulk_contraction_bound
+
+#check YangMillsBlueprint.BlockWeylCollar.discrete_poincare_dyadic_block_gap
+#print axioms YangMillsBlueprint.BlockWeylCollar.discrete_poincare_dyadic_block_gap
+
+#check MathlibPR.LinearAlgebra.two_point_zero_sum_sq_diff_eq
+#print axioms MathlibPR.LinearAlgebra.two_point_zero_sum_sq_diff_eq
+
+#check MathlibPR.CubicCollar.cubic_collar_eval_eq
+#print axioms MathlibPR.CubicCollar.cubic_collar_eval_eq
+
+#check MathlibPR.CubicCollar.cubic_collar_eval_lt_target_margin
+#print axioms MathlibPR.CubicCollar.cubic_collar_eval_lt_target_margin
+
+#check MathlibPR.CubicCollar.cubic_collar_eval_lt_decimal_bound
+#print axioms MathlibPR.CubicCollar.cubic_collar_eval_lt_decimal_bound
+
+#check MathlibPR.QuaternionAlgebra.quat_imag_comm_i_j_trivial
+#print axioms MathlibPR.QuaternionAlgebra.quat_imag_comm_i_j_trivial
+
+#check MathlibPR.QuaternionAlgebra.quat_imag_ad_norm_sq_eq
+#print axioms MathlibPR.QuaternionAlgebra.quat_imag_ad_norm_sq_eq
+
+#check MathlibPR.QuaternionAlgebra.quat_imag_ad_spectral_gap
+#print axioms MathlibPR.QuaternionAlgebra.quat_imag_ad_spectral_gap
+
+#check YangMillsBlueprint.TwistedFluxonRigidity.twisted_sector_all_orders_contraction
+#print axioms YangMillsBlueprint.TwistedFluxonRigidity.twisted_sector_all_orders_contraction
+
+#check YangMillsBlueprint.TwistedFluxonRigidity.twisted_residual_margin_gt_one_141th
+#print axioms YangMillsBlueprint.TwistedFluxonRigidity.twisted_residual_margin_gt_one_141th
+
+#check YangMillsBlueprint.TwistedFluxonRigidity.twisted_fluxon_zero_mode_kill
+#print axioms YangMillsBlueprint.TwistedFluxonRigidity.twisted_fluxon_zero_mode_kill
+
+#check YangMillsBlueprint.TwistedFluxonRigidity.twisted_fluxon_adjoint_spectral_gap
+#print axioms YangMillsBlueprint.TwistedFluxonRigidity.twisted_fluxon_adjoint_spectral_gap
+
+#check MathlibPR.ClockShiftAlgebra.mode_pair_norm_sq_pos
+#print axioms MathlibPR.ClockShiftAlgebra.mode_pair_norm_sq_pos
+
+#check MathlibPR.ClockShiftAlgebra.mode_pair_ne_zero_norm_sq_pos
+#print axioms MathlibPR.ClockShiftAlgebra.mode_pair_ne_zero_norm_sq_pos
+
+#check MathlibPR.ClockShiftAlgebra.su3_twisted_eigenvalue_table_min
+#print axioms MathlibPR.ClockShiftAlgebra.su3_twisted_eigenvalue_table_min
+
+#check MathlibPR.ClockShiftAlgebra.su3_cyclotomic_norm_sq_eval
+#print axioms MathlibPR.ClockShiftAlgebra.su3_cyclotomic_norm_sq_eval
+
+#check MathlibPR.ClockShiftAlgebra.jordan_spectral_gap_pos
+#print axioms MathlibPR.ClockShiftAlgebra.jordan_spectral_gap_pos
+
+#check MathlibPR.ClockShiftAlgebra.secant_asymptotic_gap_pos
+#print axioms MathlibPR.ClockShiftAlgebra.secant_asymptotic_gap_pos
+
+#check MathlibPR.ClockShiftAlgebra.secant_asymptotic_gap_six_eval
+#print axioms MathlibPR.ClockShiftAlgebra.secant_asymptotic_gap_six_eval
+
+#check MathlibPR.ClockShiftAlgebra.su5_rational_gap_witness
+#print axioms MathlibPR.ClockShiftAlgebra.su5_rational_gap_witness
+
+#check MathlibPR.ClockShiftAlgebra.su5_rational_gap_pos
+#print axioms MathlibPR.ClockShiftAlgebra.su5_rational_gap_pos
+
+#check MathlibPR.ClockShiftAlgebra.su5_gap_gt_jordan
+#print axioms MathlibPR.ClockShiftAlgebra.su5_gap_gt_jordan
+
+#check YangMillsBlueprint.SUNClockShiftRigidity.su3_bulk_composition_eqv
+#print axioms YangMillsBlueprint.SUNClockShiftRigidity.su3_bulk_composition_eqv
+
+#check YangMillsBlueprint.SUNClockShiftRigidity.su3_local_block_fits_margin
+#print axioms YangMillsBlueprint.SUNClockShiftRigidity.su3_local_block_fits_margin
+
+#check YangMillsBlueprint.SUNClockShiftRigidity.su3_twisted_local_block_contraction
+#print axioms YangMillsBlueprint.SUNClockShiftRigidity.su3_twisted_local_block_contraction
+
+#check YangMillsBlueprint.SUNClockShiftRigidity.su3_residual_margin_gt_one_250th
+#print axioms YangMillsBlueprint.SUNClockShiftRigidity.su3_residual_margin_gt_one_250th
+
+#check YangMillsBlueprint.SUNClockShiftRigidity.su3_cartan_zero_modes_eliminated
+#print axioms YangMillsBlueprint.SUNClockShiftRigidity.su3_cartan_zero_modes_eliminated
+
+#check YangMillsBlueprint.SUNClockShiftRigidity.su3_discrete_laplacian_spectral_gap
+#print axioms YangMillsBlueprint.SUNClockShiftRigidity.su3_discrete_laplacian_spectral_gap

@@ -1,0 +1,195 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,patterns}
+\usepackage{cite}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+\linespread{1.1}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\SU}{\mathrm{SU}}
+
+\title{Infinite-Series Polymer Contraction and Real Weyl Collar Integral Bounds for Four-Dimensional Gauge Theory in Lean~4}
+\author{Qamar Munawer \\ \small Brandenburg University of Technology Cottbus--Senftenberg, Cottbus, Germany}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper establishes a machine-checked Lean~4 proof of all-orders geometric polymer series convergence together with a rigorous real calculus upper bound on the $\SU(2)$ central Weyl collar integral at collar radius one-fifth. Geometrically, non-Abelian gauge curvature vanishes at the two central elements of the gauge group, yet the Haar integration measure vanishes quadratically there and repels field fluctuations from sitting on flat collars. All infinite-series summability proofs, real definite integrals, and rational margin certifications are machine-checked in Lean~4 without custom axioms, while the infinite-volume Clay Millennium mass gap problem remains open.
+\end{abstract}
+
+\section{Introduction}
+In the multiscale renormalization group program for four-dimensional lattice gauge theory \cite{Balaban1988CMP116,Balaban1989CMP122,KoteckyPreiss1986}, stability of the effective action relies on controlling two distinct mathematical mechanisms. First, the infinite sum over connected lattice polymers of arbitrary loop order must converge inside a complex analytic polydisk, leaving a quantitative safety margin strictly below unity. Second, when the gauge group is non-Abelian, the configuration space around reducible central elements---where the classical Wilson plaquette curvature approaches zero---must carry sufficiently small Haar measure so that central collars fit safely inside the convergence margin.
+
+Earlier numerical checks verified only finite-truncation rational approximations to these bounds. The formalization presented here replaces rational proxies with real-analytic proofs in Lean~4 over Mathlib \cite{Mathlib4}: infinite geometric \texttt{tsum} convergence (\texttt{PolydiskMajorant.lean}) and genuine Lebesgue definite integration of $\sin^2\theta$ against certified bounds on $\pi$ (\texttt{CubicSinBounds.lean}), instantiated via exact rational certificates (\texttt{YM101\_\-CauchyPolydiskCert.lean} and \texttt{YM102\_\-WeylCollarCert.lean}).
+
+\section{Polydisk Majorants and Infinite-Series Polymer Convergence}
+At weak and intermediate ultraviolet couplings, the logarithm of the partition function on a finite block expands as a convergent cluster series indexed by connected lattice animals of order $n \ge 1$ \cite{KoteckyPreiss1986,Seiler1982}. Intuitively, each spatial step along a polymer contour attaches a damping factor strictly smaller than unity, while lattice animal combinatorics grow exponentially with length; convergence holds as soon as the combined step activity $w$ satisfies $w < 1$. Because infinitely many arbitrarily long polymers contribute to the logarithm of the partition function, truncation at any fixed finite loop order leaves an uncontrolled remainder unless an infinite series bound is proved.
+
+Each order-$n$ cluster weight is bounded above by a shifted geometric majorant $w^{n+1}$, where $w \in [0, 1)$ measures the leading single-step polymer activity. If a positive convergence margin $m > 0$ satisfies $w + m \le 1$, the entire infinite series converges cleanly and its sum stays bounded by the margin ratio $(1 - m) / m$.
+
+\begin{theorem}[All-Orders Infinite Geometric Tail Convergence]
+Let $w, m \in \R$ satisfy $w \ge 0$, $m > 0$, and $w + m \le 1$. Then:
+\begin{enumerate}
+\item The infinite shifted geometric series $n \mapsto w^{n+1}$ is summable over $\mathbb{N}$.
+\item Its exact infinite sum equals $\sum_{n=0}^{\infty} w^{n+1} = \frac{w}{1 - w}$.
+\item The infinite tail obeys the uniform margin bound $\sum_{n=0}^{\infty} w^{n+1} \le \frac{1 - m}{m}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof Outline]
+Since $0 \le w \le 1 - m < 1$, Mathlib's geometric summability theorem implies $\mathrm{Summable}(n \mapsto w^n)$ with sum $(1 - w)^{-1}$. Factoring out one factor of $w$ via scalar multiplication preserves summability for $n \mapsto w \cdot w^n = w^{n+1}$ and evaluates the exact \texttt{tsum} to $w / (1 - w)$. Because $1 - w \ge m > 0$ and $w \le 1 - m$, monotonicity of division yields $w / (1 - w) \le (1 - m) / m$.
+\end{proof}
+
+Over an arbitrary linearly ordered field $F$, the finite majorant sum $\mathrm{totalWeight}(w_{\mathrm{lead}}, w_{\mathrm{tail}}) = w_{\mathrm{lead}} + w_{\mathrm{tail}}$ stays strictly below unity whenever $w_{\mathrm{tail}} \le w_{\mathrm{bound}}$ and $w_{\mathrm{lead}} + w_{\mathrm{bound}} < 1$, guaranteeing positivity of the remaining contraction margin $1 - w$.
+
+Instantiating these general theorems with the exact rational all-orders small-field weight
+\begin{equation}
+w_{\mathrm{lead}} = \frac{19623589247123587350642100903}{19979987798223270175317603840} \approx 0.982162
+\end{equation}
+and collar weight $w_{\mathrm{collar}} = \frac{452}{133125} \approx 0.003395$ proves both \texttt{canonical\_\-polymer\_\-weight\_\-lt\_\-one} ($w_{\mathrm{lead}} + w_{\mathrm{collar}} < 1$, leaving residual margin exceeding $0.0144$) and the full infinite-series real \texttt{tsum} convergence certificate \texttt{canonical\_\-polymer\_\-tsum\_\-bound} at rational safety margin $m = 1/57$.
+
+\section{Geometry of the Two Central Identities and Haar Repulsion}
+On $\SU(2)$, conjugacy classes of group elements $U \in \SU(2)$ are uniquely parameterized by a single eigenphase $\theta \in [0, \pi]$, corresponding to eigenvalues $e^{\pm \mathrm{i}\theta}$. The center $Z(\SU(2)) = \{+I, -I\}$ consists of two distinct central elements located at the endpoints $\theta = 0$ ($U = +I$) and $\theta = \pi$ ($U = -I$). Near either central pole, the classical plaquette action gradient vanishes: a parallel transport hovering near $\pm I$ commutes with every Lie algebra generator, so quadratic Gaussian stability alone cannot confine fluctuations.
+
+Quantum integration over the compact Lie group resolves this apparent degeneracy through the geometry of the Weyl integration formula. Averaging a class function over $\SU(2)$ yields the normalized reduced Haar measure on the maximal torus $[0, \pi]$:
+\begin{equation}
+d\mu_{\mathrm{Weyl}}(\theta) = \frac{2}{\pi} \sin^2(\theta) \, d\theta, \qquad \int_0^\pi \frac{2}{\pi} \sin^2(\theta) \, d\theta = 1.
+\end{equation}
+Because $\sin^2(\theta)$ vanishes quadratically at both $\theta = 0$ and $\theta = \pi$, the Jacobian determinant of the adjoint orbits suppresses the probability weight of configurations hovering near either central element. Partitioning the torus at a collar radius $\delta = 1/5$ around both poles yields a two-sided central collar region $[0, \delta] \cup [\pi - \delta, \pi]$ whose exact Haar probability measure equals
+\begin{equation}
+\mu_{\mathrm{Weyl}}\bigl([0, \delta] \cup [\pi - \delta, \pi]\bigr) = \frac{4}{\pi} \int_0^\delta \sin^2(\theta) \, d\theta.
+\end{equation}
+Outside this collar ($\delta \le \theta \le \pi - \delta$), the non-Abelian Wilson action possesses strictly positive Hessian curvature bounded uniformly away from zero, allowing standard Gaussian domination to operate undisturbed.
+
+\section{Real Calculus Proof of the Cubic Collar Integral Bound}
+To close the analytical gap between the continuous Haar integral and rational certificate arithmetic, \texttt{CubicSinBounds.lean} and \texttt{YM102\_\-WeylCollarCert.lean} carry out the full integral estimation inside Lean~4 over $\R$.
+
+\begin{lemma}[Pointwise Sine-Squared Upper Bound]
+For every real angle $\theta \in \R$, $\sin^2(\theta) \le \theta^2$.
+\end{lemma}
+
+\begin{proof}
+Mathlib's Lipschitz sine bound provides $|\sin(\theta)| \le |\theta|$. Squaring both non-negative sides gives $|\sin(\theta)|^2 \le |\theta|^2$, which simplifies to $\sin^2(\theta) \le \theta^2$.
+\end{proof}
+
+Because both $\sin^2(\theta)$ and $\theta^2$ are continuous on $[0, \delta]$ for any $\delta \ge 0$, interval integrability holds immediately. Integrating $\theta^2$ via the Fundamental Theorem of Calculus evaluates $\int_0^\delta \theta^2 \, d\theta = \delta^3 / 3$, yielding the core real calculus theorem:
+
+\begin{theorem}[Real Weyl Collar Integral Upper Bound]
+For every collar radius $\delta \ge 0$:
+\begin{equation}
+\int_0^\delta \sin^2(\theta) \, d\theta \le \frac{\delta^3}{3}, \qquad \frac{4}{\pi} \int_0^\delta \sin^2(\theta) \, d\theta \le \mathrm{cubicCollarWeight}(\pi, \delta) = \frac{4}{3\pi} \delta^3.
+\end{equation}
+\end{theorem}
+
+To pass cleanly from real $\pi$ to certified rational comparisons, notice that the parametric weight $\mathrm{cubicCollarWeight}(p, \delta) = \frac{4}{3p}\delta^3$ is strictly antitone in $p > 0$ (\texttt{cubicCollarWeight\_\-anti\_\-left}). Consequently, any certified rational lower bound $p \le \pi$ yields a rigorous upper bound on the Haar collar measure. Using Mathlib's built-in lower bound \texttt{Real.pi\_gt\_d6} ($3.141592 < \pi$) proves $333/106 \le \pi$, and exact rational arithmetic evaluates
+\begin{equation}
+\mathrm{cubicCollarWeight}\left(\frac{333}{106}, \frac{1}{5}\right) = \frac{4}{3 \cdot \frac{333}{106}} \left(\frac{1}{5}\right)^3 = \frac{424}{124875} \approx 0.0033954 < \frac{1}{57} \approx 0.017544.
+\end{equation}
+Combining these steps proves the unconditional real integral theorem (\texttt{su2\_\-real\_\-weyl\_\-collar\_\-integral\_\-lt\_\-margin}):
+\begin{equation}
+\frac{4}{\pi} \int_0^{1/5} \sin^2(\theta) \, d\theta < \frac{1}{57}.
+\end{equation}
+Thus, the combined small-field polymer expansion and reducible central collar remain strictly contractive at collar radius $\delta = 1/5$.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=Stealth, x=6.8cm, y=2.6cm, font=\scriptsize]
+  % Axes for theta in [0, 1.2], y in [0, 1.9]
+  \draw[->] (0,0) -- (1.28,0) node[right] {$\theta$};
+  \draw[->] (0,0) -- (0,1.98) node[above] {Integrand};
+  \foreach \x in {0.2, 0.4, 0.6, 0.8, 1.0, 1.2} {
+    \draw (\x, 0.03) -- (\x, -0.03) node[below] {$\x$};
+  }
+  \foreach \y in {0.5, 1.0, 1.5} {
+    \draw (0.015,\y) -- (-0.015,\y) node[left] {$\y$};
+  }
+  % Shaded collar region theta in [0, 0.2] under (4/pi)*sin^2(theta)
+  \fill[black!20, domain=0:0.2, samples=30]
+    (0,0) -- plot (\x, {1.27324*pow(sin(\x r),2)}) -- (0.2,0) -- cycle;
+  \draw[dotted, thick] (0.2,0) -- (0.2,1.65);
+  \node[above] at (0.2,1.65) {$\delta = 1/5$};
+  % Solid curve: (4/pi)*sin^2(theta)
+  \draw[thick, domain=0:1.2, samples=80]
+    plot (\x, {1.27324*pow(sin(\x r),2)}) node[right] {$\frac{4}{\pi}\sin^2\theta$};
+  % Dashed curve: (4/pi)*theta^2
+  \draw[dashed, thick, domain=0:1.2, samples=80]
+    plot (\x, {1.27324*\x*\x}) node[right] {$\frac{4}{\pi}\theta^2$};
+  % Callout for shaded area vs margin 1/57
+  \draw[<-] (0.12,0.012) -- (0.36,0.42)
+    node[above right, align=left, draw, fill=white, inner sep=3pt]
+    {Shaded collar integral (\texttt{YM102}):\\$\int_0^{1/5}\!\frac{4}{\pi}\sin^2\theta\,d\theta \le \frac{452}{133125} \approx 0.0034 < \frac{1}{57} \approx 0.0175$};
+\end{tikzpicture}
+\caption{Comparison on $\theta \in [0, 1.2]$ of the $\SU(2)$ Weyl integrand $\frac{4}{\pi}\sin^2\theta$ (solid curve) and its quadratic majorant $\frac{4}{\pi}\theta^2$ (dashed curve). Shading marks the central collar $\theta \in [0, 1/5]$, whose certified integral sits well below the $1/57$ margin ceiling.}
+\label{fig:weyl-collar-plot}
+\end{figure}
+
+\section{Collar Sensitivity, Koteck\'y--Preiss Margin Budget, and Epistemic Scope}
+To build intuition for why $\delta = 1/5$ sits comfortably inside the analytic convergence envelope, Table~\ref{tab:collar-sensitivity} compares the cubic Haar upper bound $\frac{4}{3p}\delta^3$ (evaluated at the rational lower bound $p = 333/106 < \pi$) against the residual convergence budget across candidate collar radii.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Collar Radius $\delta$ & Rational Upper Bound $\frac{4}{3p}\delta^3$ & Decimal Bound & Fits Inside Margin $1/57$? \\
+\midrule
+$1/6$ & $53 / 26973$ & $\approx 0.001965$ & Yes (wide safety margin) \\
+$1/5$ & $424 / 124875$ & $\approx 0.003395$ & Yes (certified canonical choice) \\
+$1/4$ & $53 / 7992$ & $\approx 0.006632$ & Yes \\
+$1/3$ & $424 / 26973$ & $\approx 0.015719$ & Tight ($\approx 90\%$ of $1/57$ consumed) \\
+$2/5$ & $3392 / 124875$ & $\approx 0.027163$ & No (exceeds $1/57 \approx 0.017544$) \\
+\bottomrule
+\end{tabular}
+\caption{Sensitivity of the certified two-sided central Weyl collar bound relative to the $m = 1/57$ margin budget.}
+\label{tab:collar-sensitivity}
+\end{table}
+
+From the standpoint of the Koteck\'y--Preiss cluster expansion theorem \cite{KoteckyPreiss1986}, shrinking $\delta$ below $1/5$ improves the central collar weight quadratically-to-cubically ($\propto \delta^3$), yet simultaneously reduces the lower curvature cutoff $1 - \cos\delta \approx \delta^2 / 2$ outside the collar, inflating small-field propagator variances inside $w_{\mathrm{lead}}$. Selecting $\delta = 1/5$ balances both mechanisms symmetrically: the outer small-field polymer weight $w_{\mathrm{lead}} \approx 0.982162$ leaves a residual margin $1 - w_{\mathrm{lead}} \approx 0.017838 > 1/57$, and the central collar consumes less than one-fifth of that available allowance ($0.003395 / 0.017838 \approx 19\%$).
+
+At the same time, the scope of these Lean~4 certificates remains strictly fixed-cell and weak-to-intermediate coupling. On larger spacetime boxes as the running coupling grows past $g_k^2 > 1/2$, single-cell polymer domination fails due to lattice animal entropy growth and Gribov ambiguities \cite{Gribov1978,Balaban1989CMP122}. Passing from local block stability to a uniform infinite-volume mass gap remains an open problem.
+
+\section{Formal Verification Concordance}
+Every theorem in this paper is compiled in Lean~4 (\texttt{YangMillsBlueprint}) with zero \texttt{sorry} placeholders and strictly standard kernel axioms verified automatically by \texttt{VerifyNoTraps.lean}.
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\begin{tabular}{@{}p{4.0cm}p{7.1cm}p{3.3cm}@{}}
+\toprule
+Paper Theorem & Lean 4 Module \& Declaration & Axiom Footprint \\
+\midrule
+Total weight below unity & \texttt{PolydiskMajorant.}\newline\texttt{total\_weight\_lt\_one} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Shifted geometric summability & \texttt{PolydiskMajorant.}\newline\texttt{summable\_geometric\_tail} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Infinite \texttt{tsum} margin bound & \texttt{PolydiskMajorant.}\newline\texttt{tsum\_geometric\_tail\_le} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Canonical \texttt{tsum} convergence & \texttt{Certificates.}\newline\texttt{canonical\_polymer\_tsum\_bound} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Pointwise sine-squared bound & \texttt{CubicSinBounds.}\newline\texttt{sin\_sq\_le\_sq} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Definite integral cubic bound & \texttt{CubicSinBounds.}\newline\texttt{integral\_sin\_sq\_le\_cubic} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Normalized Haar collar bound & \texttt{CubicSinBounds.}\newline\texttt{normalized\_sin\_sq\_integral\_le\_\-cubicCollarWeight} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+Cubic collar antitonicity & \texttt{CubicSinBounds.}\newline\texttt{cubicCollarWeight\_anti\_left} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+End-to-end real integral bound & \texttt{Certificates.}\newline\texttt{su2\_real\_weyl\_collar\_integral\_lt\_margin} & \texttt{[propext, Classical.choice,} \texttt{Quot.sound]} (subset) \\
+\bottomrule
+\end{tabular}
+\caption{Formal verification concordance for infinite-series polymer contraction and Weyl collar bounds.}
+\label{tab:paper2-concordance}
+\end{table}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
